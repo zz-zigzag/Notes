@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar/favicon-16x16.png">
+  <link rel="mask-icon" href="/avatar/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/avatar/manifest.json">
+  <meta name="msapplication-config" content="/avatar/browserconfig.xml">
+  <meta name="google-site-verification" content="Bwdgss4WpOgAhPAzGSrIf-0trU83SLY0hDi1ePEtXug">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://notes.zz-zigzag.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="高通量测序及变异数据库的简易使用高通量测序数据这里主要介绍NCBI的SRA和EBI的ENA，两者同步，数据基本相符，有的study在ENA中有BAM文件，但SRA中没有。网址分别是ENA: http:&#x2F;&#x2F;www.ebi.ac.uk&#x2F;enaSRA: http:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;sra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高通量测序及基因组变异数据库的入门使用">
+<meta property="og:url" content="https://notes.zz-zigzag.com/2016/05/Simple-manual-for-NGS-database.html">
+<meta property="og:site_name" content="zz_zigzag Notes">
+<meta property="og:description" content="高通量测序及变异数据库的简易使用高通量测序数据这里主要介绍NCBI的SRA和EBI的ENA，两者同步，数据基本相符，有的study在ENA中有BAM文件，但SRA中没有。网址分别是ENA: http:&#x2F;&#x2F;www.ebi.ac.uk&#x2F;enaSRA: http:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;sra">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png">
+<meta property="og:image" content="https://notes.zz-zigzag.com/images/sra.dnanexus.png">
+<meta property="article:published_time" content="2016-05-29T06:51:04.000Z">
+<meta property="article:modified_time" content="2017-02-10T00:50:32.000Z">
+<meta property="article:author" content="zz_zigzag">
+<meta property="article:tag" content="introduction">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png">
+
+<link rel="canonical" href="https://notes.zz-zigzag.com/2016/05/Simple-manual-for-NGS-database.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>高通量测序及基因组变异数据库的入门使用 | zz_zigzag Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zz_zigzag Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">黎明之晓，日出东方</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://notes.zz-zigzag.com/2016/05/Simple-manual-for-NGS-database.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="zz_zigzag">
+      <meta itemprop="description" content="黎明之晓，日出东方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zz_zigzag Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          高通量测序及基因组变异数据库的入门使用
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-05-29 14:51:04" itemprop="dateCreated datePublished" datetime="2016-05-29T14:51:04+08:00">2016-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-02-10 08:50:32" itemprop="dateModified" datetime="2017-02-10T08:50:32+08:00">2017-02-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">生物信息</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/05/Simple-manual-for-NGS-database.html" class="post-meta-item leancloud_visitors" data-flag-title="高通量测序及基因组变异数据库的入门使用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/05/Simple-manual-for-NGS-database.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/05/Simple-manual-for-NGS-database.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="高通量测序及变异数据库的简易使用"><a href="#高通量测序及变异数据库的简易使用" class="headerlink" title="高通量测序及变异数据库的简易使用"></a>高通量测序及变异数据库的简易使用</h1><h2 id="高通量测序数据"><a href="#高通量测序数据" class="headerlink" title="高通量测序数据"></a>高通量测序数据</h2><p>这里主要介绍NCBI的SRA和EBI的ENA，两者同步，数据基本相符，有的<code>study</code>在ENA中有BAM文件，但SRA中没有。网址分别是<br>ENA: <a href="http://www.ebi.ac.uk/ena" target="_blank" rel="noopener">http://www.ebi.ac.uk/ena</a><br>SRA: <a href="http://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener">http://www.ncbi.nlm.nih.gov/sra</a></p>
+<p><img src="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png" alt=""></p>
+<a id="more"></a>
+
+<h3 id="组织结构"><a href="#组织结构" class="headerlink" title="组织结构"></a>组织结构</h3><p>包括<code>stduy</code>、<code>sample</code>、<code>experiment</code>和<code>run</code></p>
+<ol>
+<li><strong>stduy</strong>: 为一个特定的研究目的，如千人基因组计划就为一个大型课题，它还包含多个子课题。研究课题有一个 <code>SRA</code>与<code>ENA</code>数据库通用的检索号，为<code>DRP/SRP/ERP</code>开头加数字的形式。每一个研究课题需要隶属于一个注册在NCBI的<code>BioProject</code>数据库的项目，一个<code>BioProject</code>的项目可以包含多个研究课题。</li>
+<li><strong>sample</strong>: 为测序个体(人或其他物种)，检索号为<code>DRS/ERS/SRS</code>开头加数字的形式。每个测序样本需要在<code>NCBI</code>的<code>BioSample</code>数据库中进行注册并描述相关属性信息，研究课题与测序样本为多对多的关系，即一个课题下可以包含多个样本的测序，而同一个体也可以被不同的课题研究。</li>
+<li><strong>experiment</strong>: 为<code>SRA</code>数据库的基本单元，包含着测序实验的描述信息。实验检索号为<code>DRX/ERX/SRX</code>开头加数字的形式。每个实验需隶属一个<code>BioProject</code>的项目，实验与样本为多对一的关系，同一实验只能测序一个样本，同一样本则可能被不同实验测序。</li>
+<li><strong>run</strong>: 为下载的基本单元，每个<code>Run</code>对应一个文件，存储测序序列及测序质量等信息，编号为<code>DRR/ERR/SRR</code>开头加数字的形式，一个实验可以包含一个或多个<code>run</code>。<br>例如千人基因组计划先导项目<code>PRJNA61209</code>包括3个研究课题，其中第一个课题的检索号为<code>SRP000031</code>，包含178个测序样本的523个实验。</li>
+</ol>
+<h3 id="数据下载（三种方法）"><a href="#数据下载（三种方法）" class="headerlink" title="数据下载（三种方法）"></a>数据下载（三种方法）</h3><ol>
+<li><strong>FTP:</strong> NCBI: ftp.ncbi.nlm.nih.gov/sra (可以使用IPv6)，EBI: ftp.sra.ebi.ac.uk</li>
+<li>使用<a href="http://www.ncbi.nlm.nih.gov/Traces/sra/?view=software" target="_blank" rel="noopener">SRA Toolkit</a>的<code>prefetch</code>，就像<code>$ prefetch SRR390728</code>或<code>$ prefetch --list listfile</code></li>
+<li><strong>aspera</strong>，高速文件传输服务，参考<a href="/2016/05/Download-EBI-and-NCBI-data-by-Aspera.html">使用Aspera下载EBI和NCBI数据</a>。</li>
+</ol>
+<p>参考:<br><a href="http://www.ncbi.nlm.nih.gov/books/NBK242621/" target="_blank" rel="noopener">http://www.ncbi.nlm.nih.gov/books/NBK242621/</a><br><a href="http://www.ebi.ac.uk/ena/browse/read-download" target="_blank" rel="noopener">http://www.ebi.ac.uk/ena/browse/read-download</a><br><a href="http://www.ncbi.nlm.nih.gov/books/NBK51062/#intro.More_detailed_version" target="_blank" rel="noopener">http://www.ncbi.nlm.nih.gov/books/NBK51062/#intro.More_detailed_version</a></p>
+<h3 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h3><p>NCBI下载的通常为<code>sra</code>结尾的文件，需使用<code>SRA Toolkit</code>中的<code>$ fastq-dump/sam-dump --split-files SRR390728</code></p>
+<h3 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h3><ul>
+<li>官网首页可搜索</li>
+<li><a href="http://www.ncbi.nlm.nih.gov/Traces/study/" target="_blank" rel="noopener">http://www.ncbi.nlm.nih.gov/Traces/study/</a></li>
+<li><a href="http://www.ncbi.nlm.nih.gov/Traces/sra/" target="_blank" rel="noopener">http://www.ncbi.nlm.nih.gov/Traces/sra/</a></li>
+<li><a href="http://sra.dnanexus.com/" target="_blank" rel="noopener">DNAnexus</a><br><img src="/images/sra.dnanexus.png" alt=""></li>
+</ul>
+<h2 id="基因组变异数据"><a href="#基因组变异数据" class="headerlink" title="基因组变异数据"></a>基因组变异数据</h2><ul>
+<li><a href="http://www.ncbi.nlm.nih.gov/SNP/" target="_blank" rel="noopener"><strong>dbSNP</strong></a>是关于SNP和indel的数据库</li>
+<li>DGV/DGVa/dbVar，结构变异数据库，常用DGV，会收录许多文献发布的变异数据，可按stduy/sample/chromosome/SV type/reference等进行检索，十分方便。</li>
+</ul>
+<p>DGV: <a href="http://dgv.tcag.ca/dgv/app/home" target="_blank" rel="noopener">http://dgv.tcag.ca/dgv/app/home</a><br>DGVa: <a href="https://www.ebi.ac.uk/dgva" target="_blank" rel="noopener">https://www.ebi.ac.uk/dgva</a><br>dbVar: <a href="http://www.ncbi.nlm.nih.gov/dbvar/" target="_blank" rel="noopener">http://www.ncbi.nlm.nih.gov/dbvar/</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/introduction/" rel="tag"># introduction</a>
+              <a href="/tags/database/" rel="tag"># database</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/05/Download-EBI-and-NCBI-data-by-Aspera.html" rel="prev" title="使用Aspera下载EBI和NCBI的数据">
+      <i class="fa fa-chevron-left"></i> 使用Aspera下载EBI和NCBI的数据
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/06/Linux-CheatSheets.html" rel="next" title="Linux CheatSheets">
+      Linux CheatSheets <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高通量测序及变异数据库的简易使用"><span class="nav-number">1.</span> <span class="nav-text">高通量测序及变异数据库的简易使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#高通量测序数据"><span class="nav-number">1.1.</span> <span class="nav-text">高通量测序数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组织结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">组织结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据下载（三种方法）"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据下载（三种方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式转换"><span class="nav-number">1.1.3.</span> <span class="nav-text">格式转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检索"><span class="nav-number">1.1.4.</span> <span class="nav-text">检索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基因组变异数据"><span class="nav-number">1.2.</span> <span class="nav-text">基因组变异数据</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zz_zigzag"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">zz_zigzag</p>
+  <div class="site-description" itemprop="description">黎明之晓，日出东方</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zz-zigzag" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zz-zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@xiaodong.dev" title="E-Mail → mailto:me@xiaodong.dev" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zigzagwb" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zigzagwb" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zz_zigzag" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zz_zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zz4zigzag" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;zz4zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备18025453号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zz_zigzag</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260429262&web_id=1260429262"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz',
+            'X-LC-Key': 'pe46eCq4Hq4MSwg7J8W2L0mR',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'EhjFgOBoMaC8Pwx2RxrKqyWo-gzGzoHsz',
+    appKey: 'oJEgPRzxCb3XrCc1vMen96jV',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

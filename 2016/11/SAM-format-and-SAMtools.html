@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar/favicon-16x16.png">
+  <link rel="mask-icon" href="/avatar/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/avatar/manifest.json">
+  <meta name="msapplication-config" content="/avatar/browserconfig.xml">
+  <meta name="google-site-verification" content="Bwdgss4WpOgAhPAzGSrIf-0trU83SLY0hDi1ePEtXug">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://notes.zz-zigzag.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="SAM文件格式和SAMtools这里是简单的一些介绍。详细的内容建议看官方手册。官方的文档既全面，又会更新，是第一手资料。这里是SAM文件格式以及SAMtools的一些简单的介绍，更详细内容移步SAMtools相关官方文档。 SAM文件格式通常得到个体&#x2F;供体（individual&#x2F;donor）的测序序列（reads）时，由于测序技术的原因，得到的是打碎的小片段，并不知道每个read在参考序列上位置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SAM文件格式和SAMtools">
+<meta property="og:url" content="https://notes.zz-zigzag.com/2016/11/SAM-format-and-SAMtools.html">
+<meta property="og:site_name" content="zz_zigzag Notes">
+<meta property="og:description" content="SAM文件格式和SAMtools这里是简单的一些介绍。详细的内容建议看官方手册。官方的文档既全面，又会更新，是第一手资料。这里是SAM文件格式以及SAMtools的一些简单的介绍，更详细内容移步SAMtools相关官方文档。 SAM文件格式通常得到个体&#x2F;供体（individual&#x2F;donor）的测序序列（reads）时，由于测序技术的原因，得到的是打碎的小片段，并不知道每个read在参考序列上位置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://notes.zz-zigzag.com/images/CIGAR.png">
+<meta property="article:published_time" content="2016-11-21T01:09:53.000Z">
+<meta property="article:modified_time" content="2016-12-12T09:48:46.000Z">
+<meta property="article:author" content="zz_zigzag">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="NGS">
+<meta property="article:tag" content="data">
+<meta property="article:tag" content="format">
+<meta property="article:tag" content="SAMtools">
+<meta property="article:tag" content="SAM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://notes.zz-zigzag.com/images/CIGAR.png">
+
+<link rel="canonical" href="https://notes.zz-zigzag.com/2016/11/SAM-format-and-SAMtools.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>SAM文件格式和SAMtools | zz_zigzag Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zz_zigzag Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">黎明之晓，日出东方</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://notes.zz-zigzag.com/2016/11/SAM-format-and-SAMtools.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="zz_zigzag">
+      <meta itemprop="description" content="黎明之晓，日出东方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zz_zigzag Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          SAM文件格式和SAMtools
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-21 09:09:53" itemprop="dateCreated datePublished" datetime="2016-11-21T09:09:53+08:00">2016-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2016-12-12 17:48:46" itemprop="dateModified" datetime="2016-12-12T17:48:46+08:00">2016-12-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">生物信息</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/11/SAM-format-and-SAMtools.html" class="post-meta-item leancloud_visitors" data-flag-title="SAM文件格式和SAMtools" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/11/SAM-format-and-SAMtools.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/11/SAM-format-and-SAMtools.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="SAM文件格式和SAMtools"><a href="#SAM文件格式和SAMtools" class="headerlink" title="SAM文件格式和SAMtools"></a>SAM文件格式和SAMtools</h1><p>这里是简单的一些介绍。详细的内容建议看官方手册。官方的文档既全面，又会更新，是第一手资料。这里是SAM文件格式以及SAMtools的一些简单的介绍，更详细内容移步<a href="/2016/11/Related-documentation-of-samtools.html">SAMtools相关官方文档</a>。</p>
+<h2 id="SAM文件格式"><a href="#SAM文件格式" class="headerlink" title="SAM文件格式"></a>SAM文件格式</h2><p>通常得到个体/供体（individual/donor）的测序序列（reads）时，由于测序技术的原因，得到的是打碎的小片段，并不知道每个read在参考序列上位置，所以要mapping到参考基因组上去，找到其在参考基因组上的位置。比对结果通常以文本形式按SAM（Sequence Alignment/Map）格式进行保存，为了便于存储和传输，常被压缩为BAM和CRAM二进制文件。SAM格式文件包含测序片段的所有比对信息。</p>
+<a id="more"></a>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@HD     VN:<span class="number">1.3</span>  SO:coordinate</span><br><span class="line">@SQ     SN:<span class="number">11</span>   LN:<span class="number">134452384</span></span><br><span class="line">@PG     ID:bwa  PN:bwa  VN:<span class="number">0.7</span><span class="number">.12</span>-r1039 CL:bwa sampe -a <span class="number">1500</span> /share/home/gaojingyang/NGS_Data/Reference/ncbi36/<span class="number">11.f</span>a <span class="number">10</span>_11_1.sai <span class="number">10</span>_11_2.sai <span class="number">10</span>_11_1.fq <span class="number">10</span>_11_2.fq</span><br><span class="line"><span class="number">11</span><span class="number">-1911076</span>      <span class="number">99</span>      <span class="number">11</span>      <span class="number">52531</span>   <span class="number">29</span>      <span class="number">6</span>S93M1S =       <span class="number">52706</span>   <span class="number">275</span>     CTACATTTATTTTGTAGAAGTTCTTTCACCTTTATCAGAAGGTACTTTCACCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTC    C=CFFEFDHHH+HH;AGIJBJIHJHHIJJJJJJIIIJIJJFDJJIJJJFJ)<span class="symbol">DGGJJJGHIDDGAIBHGIEDAGC6AA2BDFBFCDE@</span>DCDBD=DE(;DD0    XT:A:M  NM:i:<span class="number">0</span>  SM:i:<span class="number">29</span> AM:i:<span class="number">29</span> XM:i:<span class="number">0</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">93</span></span><br><span class="line"><span class="number">11</span><span class="number">-2807908</span>      <span class="number">163</span>     <span class="number">11</span>      <span class="number">52535</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52733</span>   <span class="number">298</span>     TTTGTAGATGTTCTTTCACCTTTATCAGAAGGTACTTTCACCTTGATTCAACAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTATAATTCACCC    <span class="symbol">C@</span>@<span class="number">4</span>=FDF#H&gt;HHJEJIIIIJJJIFAIIJHJII?IJ&gt;JC&lt;GEIJJJIGHB-DJJJCJGJJJIEHJ)DJJF5DJGAHEGCB:CD-BDAAF,:EDDDDD(DD    XT:A:U  NM:i:<span class="number">4</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">4</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">8</span>A42T37G7T2</span><br><span class="line"><span class="number">11</span><span class="number">-3392818</span>      <span class="number">99</span>      <span class="number">11</span>      <span class="number">52557</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52668</span>   <span class="number">211</span>     TATCAGAAGGTACTTTCACCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTGTAATTCATCCATTCGTATTGCTATATGAGATT    =@CAF)ADHH&gt;HHFJJHGH+GIC,JBGIGIJHJIIGIII;GI*JJIJF)DFEJHEIIHDJD?<span class="symbol">E@</span>HJECF=D.HD(D&lt;F;?&lt;<span class="symbol">DDHHEDDD2DD@</span>,FE)CBD    XT:A:U  NM:i:<span class="number">1</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">1</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">96</span>T3</span><br><span class="line"><span class="number">11</span><span class="number">-11241866</span>     <span class="number">163</span>     <span class="number">11</span>      <span class="number">52562</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52753</span>   <span class="number">291</span>     GAAGGTACATTCACCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTGTAATTCATCCATTCGTATTGCTATATGATATTCCAGT    CCC4=FFF#?HHGHCJ+,&lt;JJFI::JHIIJGFHEGIJJBJJJIEDJBEJD,IHIJIEEBJBHCIJGDIDDHDDDFECJ+BB58EDHC+BDFDA?A:DD(B    XT:A:U  NM:i:<span class="number">2</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">2</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">8</span>T89C1</span><br><span class="line"><span class="number">11</span><span class="number">-589542</span>       <span class="number">99</span>      <span class="number">11</span>      <span class="number">52563</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52699</span>   <span class="number">236</span>     AAGGTACTTTCACCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTCGGTGTAATTCATCCATTCGTATTGCTATATGATATTCCACTA    <span class="symbol">C@</span>BFFFFFAHHHHJJJIJJIJJ3J13JAJICIJIGIC(HFJJ)HJJ?EIJJHIJDIJ)JHH)CFGFBIFG=DF&gt;,BH&gt;EDHD;DCCC?C?<span class="symbol">D5@</span><span class="number">5</span>DDDDDB    XT:A:U  NM:i:<span class="number">1</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">1</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">57</span>T42</span><br><span class="line"><span class="number">11</span><span class="number">-11179046</span>     <span class="number">99</span>      <span class="number">11</span>      <span class="number">52566</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52764</span>   <span class="number">298</span>     GTACTTTCACCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTGTAATTCATCCATTCGTATTGCTATATGATATTCCACTACAT    <span class="symbol">1C@</span>DFDDFHHF&lt;HE=<span class="symbol">IJC@</span>JIJHJGHJHHHIH)JIJ:JJHJ9IGDIJ)JJIFI=;<span class="symbol">JGIEJ@</span><span class="symbol">JD@</span>H5(HIHBFHG99CI&gt;BHEDDGDDDDECDDDDDDDBD    XT:A:U  NM:i:<span class="number">0</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">0</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">100</span></span><br><span class="line"><span class="number">11</span><span class="number">-12910752</span>     <span class="number">163</span>     <span class="number">11</span>      <span class="number">52568</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52761</span>   <span class="number">293</span>     ACTTTCACCTTGTTTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTGTAATTCATCCATTCGTATTGCTATATGATATTCCACTACATGA    CCCF1BDEHFHF+J&lt;J,IGIJGJHIJH:)IJICJHC/JII9GJ9=J/?<span class="symbol">HFHCIHI@</span>HACHIBCJ;H=&gt;FHHF&gt;EFBDFD&gt;@ACFD&lt;,BBAD,C&lt;EDD5DC    XT:A:U  NM:i:<span class="number">1</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">1</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">12</span>A87</span><br><span class="line"><span class="number">11</span><span class="number">-2579510</span>      <span class="number">163</span>     <span class="number">11</span>      <span class="number">52568</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52763</span>   <span class="number">295</span>     ACTTTCACCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTGTAATTCATCCATTCGTATTGCTATATGATATTCCACTACATGA    @+BFFDFFHHF+AIJJEHJJCJHJIGH#@IJHIH?DIJJIHFIIJIF&gt;<span class="number">0</span>CIBJDJHIFHJ=GCJ(D8GC8CHDJDCDFDD2CF+DEDBB&gt;:CDCADDBC;    XT:A:U  NM:i:<span class="number">0</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">0</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">100</span></span><br><span class="line"><span class="number">11</span><span class="number">-10363294</span>     <span class="number">99</span>      <span class="number">11</span>      <span class="number">52575</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52830</span>   <span class="number">354</span>     CCTTGATTCAATAATAAGTTTGCATATTACAACCTTGTTGAATGTTGGTGTTATTCATCCATTCGTATTGCTATATGATATTCCACTACATGAATATGTC    ?<span class="symbol">B@</span>DFFFFHHFFD(JGHIJJCFJIFJJJIJJIHFJGJHJDGDHIDGJIJIG)JBG=JEIFDH?IJ=AGF&gt;I(CCDCEDBD;<span class="symbol">DDHE@</span>:DDEBFDDDCD0=A    XT:A:U  NM:i:<span class="number">1</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">1</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">51</span>A48</span><br><span class="line"><span class="number">11</span><span class="number">-11225740</span>     <span class="number">99</span>      <span class="number">11</span>      <span class="number">52599</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52722</span>   <span class="number">222</span>     TATTACAACCTTGTTGAATGTTGGTGTAATTCATCCATTCGTATTGCTATATGATATTCCACTACATGAATATGTCGGACTTCATTCCTCAGATCTATTG    B1&lt;DDDFFH+HDFIHGJJJJJIJJJJIG33GI:HJGJIJGIGIJJJ?JJJJIHJIDI7HI=<span class="symbol">JE@</span><span class="symbol">DDF@</span><span class="symbol">JDEDH@</span>BE&gt;CD6CCDE&gt;C&gt;ECDDDD&gt;D&gt;DBCD    XT:A:U  NM:i:<span class="number">0</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">0</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">100</span></span><br><span class="line"><span class="number">11</span><span class="number">-2240062</span>      <span class="number">99</span>      <span class="number">11</span>      <span class="number">52630</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52730</span>   <span class="number">200</span>     CATCCATTCGTATTGCTATATGATATTCCACTACATGAATATGTCGGACTTCATTCCTCAGATCTATTGTTGATGAACACTTGAAATTTTTCCAGTTTTT    @C?FAFFFHCH8HJJHIIHIIHJHFJJHIFJJ*;JAHJIJJBJJJIEF?IJI7I)DFJI&amp;<span class="symbol">5HJ7HIA@</span>EH&lt;DJ;CEED&gt;HC(DCDDD5CC5C:(DDDD2C    XT:A:U  NM:i:<span class="number">0</span>  SM:i:<span class="number">37</span> AM:i:<span class="number">37</span> X0:i:<span class="number">1</span>  X1:i:<span class="number">0</span>  XM:i:<span class="number">0</span>  XO:i:<span class="number">0</span>  XG:i:<span class="number">0</span>  MD:Z:<span class="number">100</span></span><br><span class="line"><span class="number">11</span><span class="number">-5366918</span>      <span class="number">163</span>     <span class="number">11</span>      <span class="number">52654</span>   <span class="number">60</span>      <span class="number">100</span>M    =       <span class="number">52840</span>   <span class="number">286</span>     ATTCCACTACATGAATATGTCGGATTTCATTCCTCAGATCTATTGTTGATGAACACTTGAAATTTTTCCAGTTTTTAACCATTACAAACAATGCTGCTAT    CBCDADDF+DFFCJIJI=G3JI:G#<span class="symbol">IJEJIGHEJJG@</span>:?@DGGGGJA<span class="comment">/*H8I;AD&lt;J3EGIHJ,HHDHIEJ=+DDDCFDCBDBCDDDDDD0CD+C&gt;DD(D    XT:A:U  NM:i:1  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:1  XO:i:0  XG:i:0  MD:Z:24C75</span></span><br><span class="line"><span class="comment">11-3392818      147     11      52668   60      100M    =       52557   -211    ATATGTCCGACTTCATTCCTCAGATCTATTGTTGATGAACACTTGAAATTTTTCCAGTTTTTAACCATTACAAACAATGCTGCTATGAACATTCTTTTGT    CCDDC(5&amp;BCADBD3H-BFEC;E)H?ADD@DIJIFEHHII@IHEGJ3CIH7EDHJDI)@IBIDHAJJJHJAJFJFEJGCIIIIJJJAHHHGHFDFDFCCB    XT:A:U  NM:i:1  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:1  XO:i:0  XG:i:0  MD:Z:7G92</span></span><br><span class="line"><span class="comment">11-521728       99      11      52694   60      100M    =       52827   233     TATTGTTGATGAACACTTGAAATTTTTCCAGTTTTTAACCATTACAAACAATGCTGCTATGAACATTCTTTTGTAAATCACCTGGTTCATATGTGCAAGA    C@@FFDFF8BGHHAJJIJIJJIIHHIIJIGJGIJJ3:J0?-GIJIDHJ0JIJH?DJHIHC2DHGCFGDDFDD;9BCBEDCDBBBCDA2BECBBFEDDD&amp;5    XT:A:U  NM:i:0  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:0  XO:i:0  XG:i:0  MD:Z:100</span></span><br><span class="line"><span class="comment">11-589542       147     11      52699   60      100M    =       52563   -236    TTGATGAACACTTGAAATTTTTCCAGTTTTTAACCATTACAAACAATGCTGCTATGCACATTCTTTTGTAGATCACCTGGTTCATATGTGCAAGATATCC    DDDDCC5D;DAD4D@D&gt;:DCDF&gt;,DEEDEJ8IDBHJDEDFHIFFF=BIHGCG@HF;#IGJIJ?HJDHJJI*BGGEIHIIEIJ2:IJJD;HHAFFF+FCCB    XT:A:U  NM:i:2  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:2  XO:i:0  XG:i:0  MD:Z:56A13A29</span></span><br><span class="line"><span class="comment">11-1911076      147     11      52706   29      100M    =       52531   -275    ACACTTGAAATTTTTCCAGTTTTTAACCATTACAAACAATGCTGCTATGAACATTCTTTTGTAAATCACCTGGTTCATATGTGCAAGATATCCTCTGGGG    D@DACD4A&gt;D&gt;DDEEEB5EC@D;&lt;(B09CFHDH&lt;BBEG&lt;FJDJIHJ/JIDC5GJ8J#EEJJI?HII?JIJIGJJIIJIJJJHJIJJI&lt;GHHHFFEF=@@@    XT:A:U  NM:i:0  SM:i:29 AM:i:29 X0:i:1  X1:i:0  XM:i:0  XO:i:0  XG:i:0  MD:Z:100</span></span><br><span class="line"><span class="comment">11-6240990      163     11      52709   60      100M    =       52824   215     CTTGAAATTTTTCCAGTTCTTAACCATTACAAACAATGCTGCTATGAACATTCTTTTGTAAATCACCTGGTTCATATGTGCAAGATATCCTCTGGGGTAT    C@C?A;DDDGD&lt;HIHGJJ,JIIJJ?JEIJGIJIHJJIFJJIAJCIDHH?H@H;AICJJJJBFHJJHGEJFCFH@IDDD;D4CC&gt;D3CCEAB;D((DDD@D    XT:A:U  NM:i:1  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:1  XO:i:0  XG:i:0  MD:Z:18T81</span></span><br><span class="line"><span class="comment">11-11225740     147     11      52722   60      1S99M   =       52599   -222    ACAGTTTTTAACCATTACAAACAATGCTGCTATGAACATTCTTTTGTAAATCACCTGGTTCATATGTGCAAGATATCCTCGGGGGTATATATTTAAATGT    (C&gt;#CCDB&gt;CE@D@DCDFDDFB7EJ8HAHJH(;HD8BBDJIII?HIJJ+BI8DJJIDJGIJJI*H@IFHIFIAJFIJIGJ#ICIJJFHAHAHFFDDF++C    XC:i:99 XT:A:U  NM:i:2  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:2  XO:i:0  XG:i:0  MD:Z:79T16A2</span></span><br><span class="line"><span class="comment">11-2240062      147     11      52730   60      100M    =       52630   -200    AACCATTACAAACAATGCTGCTATGAACATTCTTTTGTAAATCACCTGGTACATATGTGCAAGATATCCTCTGGGGTATATATTTAAAAGTAAAATTATT    8CA?CAD0DD@@E9DD@HBE&gt;4F@D:EAFGEI7(HDGJIFI?HAJIGGHA(JHIHDGJIJIHBJGJH&lt;BIJIFJJHJCHJJGGFFJJHF&lt;HHAFDDFC?B    XT:A:U  NM:i:1  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:1  XO:i:0  XG:i:0  MD:Z:50T49</span></span><br><span class="line"><span class="comment">11-2807908      83      11      52733   60      100M    =       52535   -298    CATTACAAACAATGCTGCTATGGACATTCTTTTGTAAATCACCTGGTTCATATGTGCAAGATATCCTCTGGGGTATATATTTAAAAGTAAAATTATTGAG    CDD@DBDD@:&gt;7DCDBDD.DD:(B?FHCHBJ&lt;JDG;8EH&gt;DICGIDC(JJIEJCHJJIFIEIHJFCHJCJJJ1JGJGGHIAHJJGJJFFHDHDDFD+C;@    XT:A:U  NM:i:1  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:1  XO:i:0  XG:i:0  MD:Z:22A77</span></span><br><span class="line"><span class="comment">11-11277944     163     11      52734   60      100M    =       53007   373     ATTACAAACAATCCTGCTATGAACATTCTTTTGTAAGTCACCTGGTTCATATGTGCAATATATCCTCTGGGGTATATATTTAAAAGTAAAATTATTGAGT    CC@?FFEAHHHD#IJCJIIIICJ3IBCJIJJIIGJH(BIJIGBI3AJJIFECHDE8GH#?EJJ8DGFDH@DDFEBFF?DDD2D8C6&gt;DD&gt;E(&lt;D5DCDD&gt;    XT:A:U  NM:i:3  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:3  XO:i:0  XG:i:0  MD:Z:12G23A21G41</span></span><br><span class="line"><span class="comment">11-8199004      163     11      52743   60      100M    =       52942   299     AATGCTGCTATGAACATTCTTTTGTAAATCACCTGGTTCATATGTGCAAGATATCCTCTGGGGTATATATTTAAAAGTAAAATTATTGAGTTATTCAACA    CCC=BFFFFCGFH+J@@JJHIIJHJ8IIIIGHG0IIJGJBIFHGFDHGBHJIBJDJJJFHEJ:IJHDI=D(FFDA=GFD6CDFDD&gt;CC(E&amp;CD5?DDDCD    XT:A:U  NM:i:0  SM:i:37 AM:i:37 X0:i:1  X1:i:0  XM:i:0  XO:i:0  XG:i:0  MD:Z:100</span></span><br></pre></td></tr></table></figure>
+
+<p>SAM格式文件包含两部分，头部注释和比对信息部分。头部注释包含了该文件的基本信息，每行以“@”开始，主要有SAM格式的版本、所用参考基因组的名称与长度、测序样本的描述信息、所用比对软件的信息及相关数据处理的命令行等。</p>
+<p>比对信息部分每行对应一个测序片段的比对信息，包含11个固定字段和可选字段。11个固定字段按顺序分别为，测序片段ID、位标识、所映射的染色体、映射的位置、映射的质量、CIGAR（比对情况）、配对片段的映射的染色体、配对片段映射的位置、模板长度、片段序列、序列质量信息以及一些可选字段。位标识的每个二进制位代表一个标识信息，主要是测序片段是否映射成功、映射方向等信息。CIGAR以字符串形式描述序列片段的具体比对信息，由数字+一个字母形成的串连接而成，数字为序列的长度，字母为这段序列与参考序列的比对形式。常用的比对形式有：</p>
+<ol>
+<li>“M”：匹配，该段序列与参考序列的碱基相对位，但可能包括错配。</li>
+<li>“D”：缺失，测序片段中相对于参考序列缺失此段碱基。</li>
+<li>“I”：插入，测序片段中相对于参考序列插入此段碱基。</li>
+<li>“S”：软剪切，测序片段比对得分为负，舍弃。</li>
+</ol>
+<p>如<code>30M5I25M5D25M10S</code>意味着100bp的片段依次以30个碱基匹配、5个碱基插入、25个碱基匹配、5个碱基缺失，25个碱基匹配，10个碱基未匹配，具体可参照下图。<br><img src="/images/CIGAR.png" alt=""></p>
+<p>每行最后还可以包含多个可选字段，字段格式为【标签（两个字符）：数据类型（字符、整型、浮点型、字符串等）：值】。可选字段的标签非常多，这里只列出几个特殊的标签：</p>
+<ol>
+<li>X0：最优比对的数量（存在多个最最优比对时）。</li>
+<li>X1：次优比对的数量。</li>
+<li>XT：是否唯一比对至此，（Unique/Repeat/N/Multiply）。</li>
+<li>XM：错配（mismatch）的碱基数量。</li>
+</ol>
+<h2 id="SAMtools工具介绍"><a href="#SAMtools工具介绍" class="headerlink" title="SAMtools工具介绍"></a>SAMtools工具介绍</h2><p>在NGS分析的过程中，经常要对包含比对信息的SAM/BAM/CRAM格式文件进行基本处理，常见的为bam文件。本文所用工具为SAMtools，常用的SAMtools命令及功能说明如下。</p>
+<ol>
+<li>index：对bam文件建立索引。</li>
+<li>merge：归并多个bam文件为一个。</li>
+<li>cat：连接多个未排序的bam文件。</li>
+<li>sort：将bam文件中的reads按映射位置或名称进行排序。</li>
+<li>depth：计算指定区域的映射深度。</li>
+<li>flagstat：输出bam文件的统计信息</li>
+<li>flags：根据bam文件的位标识字段进行过滤或提取。</li>
+<li>view：对SAM/BAM/CRAM格式的相互转换，还可进行数据切片，保留映射到指定染色体、指定坐标范围内的测序片段。</li>
+<li>tview：测序片段映射情况浏览器，终端界面可视化测序片段的比对信息。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"># software</a>
+              <a href="/tags/NGS/" rel="tag"># NGS</a>
+              <a href="/tags/data/" rel="tag"># data</a>
+              <a href="/tags/format/" rel="tag"># format</a>
+              <a href="/tags/SAMtools/" rel="tag"># SAMtools</a>
+              <a href="/tags/SAM/" rel="tag"># SAM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/11/How-to-install-a-CentOS.html" rel="prev" title="CentOS系统安装配置">
+      <i class="fa fa-chevron-left"></i> CentOS系统安装配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/11/Related-documentation-of-samtools.html" rel="next" title="SAMtools相关官方文档">
+      SAMtools相关官方文档 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SAM文件格式和SAMtools"><span class="nav-number">1.</span> <span class="nav-text">SAM文件格式和SAMtools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SAM文件格式"><span class="nav-number">1.1.</span> <span class="nav-text">SAM文件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SAMtools工具介绍"><span class="nav-number">1.2.</span> <span class="nav-text">SAMtools工具介绍</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zz_zigzag"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">zz_zigzag</p>
+  <div class="site-description" itemprop="description">黎明之晓，日出东方</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zz-zigzag" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zz-zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@xiaodong.dev" title="E-Mail → mailto:me@xiaodong.dev" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zigzagwb" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zigzagwb" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zz_zigzag" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zz_zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zz4zigzag" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;zz4zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备18025453号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zz_zigzag</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260429262&web_id=1260429262"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz',
+            'X-LC-Key': 'pe46eCq4Hq4MSwg7J8W2L0mR',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'EhjFgOBoMaC8Pwx2RxrKqyWo-gzGzoHsz',
+    appKey: 'oJEgPRzxCb3XrCc1vMen96jV',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

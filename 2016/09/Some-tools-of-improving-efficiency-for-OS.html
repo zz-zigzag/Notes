@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar/favicon-16x16.png">
+  <link rel="mask-icon" href="/avatar/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/avatar/manifest.json">
+  <meta name="msapplication-config" content="/avatar/browserconfig.xml">
+  <meta name="google-site-verification" content="Bwdgss4WpOgAhPAzGSrIf-0trU83SLY0hDi1ePEtXug">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://notes.zz-zigzag.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="一些提高效率的系统工具前两天总结了 一些提高效率的系统调整，现在总结一些常用的提高效率的工具。 文本编辑通常，新机装好，我会装上一个小软件，那就是Notepad++，包括现在我在Windows下面写笔记也是用的这个，对于任何文本文件，它都可以方便的右键打开。如果是开大文件，EmEditor是个不错的选择。当然如果系统中存在一个bash终端或者有Git GUI类似可以使用Linux强大命令工具，vi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些提高效率的系统工具">
+<meta property="og:url" content="https://notes.zz-zigzag.com/2016/09/Some-tools-of-improving-efficiency-for-OS.html">
+<meta property="og:site_name" content="zz_zigzag Notes">
+<meta property="og:description" content="一些提高效率的系统工具前两天总结了 一些提高效率的系统调整，现在总结一些常用的提高效率的工具。 文本编辑通常，新机装好，我会装上一个小软件，那就是Notepad++，包括现在我在Windows下面写笔记也是用的这个，对于任何文本文件，它都可以方便的右键打开。如果是开大文件，EmEditor是个不错的选择。当然如果系统中存在一个bash终端或者有Git GUI类似可以使用Linux强大命令工具，vi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://notes.zz-zigzag.com/images/Google.jpg">
+<meta property="article:published_time" content="2016-09-19T04:58:17.000Z">
+<meta property="article:modified_time" content="2017-06-09T06:45:08.000Z">
+<meta property="article:author" content="zz_zigzag">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="efficiency">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://notes.zz-zigzag.com/images/Google.jpg">
+
+<link rel="canonical" href="https://notes.zz-zigzag.com/2016/09/Some-tools-of-improving-efficiency-for-OS.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>一些提高效率的系统工具 | zz_zigzag Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zz_zigzag Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">黎明之晓，日出东方</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://notes.zz-zigzag.com/2016/09/Some-tools-of-improving-efficiency-for-OS.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="zz_zigzag">
+      <meta itemprop="description" content="黎明之晓，日出东方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zz_zigzag Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          一些提高效率的系统工具
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-19 12:58:17" itemprop="dateCreated datePublished" datetime="2016-09-19T12:58:17+08:00">2016-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-06-09 14:45:08" itemprop="dateModified" datetime="2017-06-09T14:45:08+08:00">2017-06-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%BB%E7%BB%93%E5%A4%87%E4%BB%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">总结备份</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/09/Some-tools-of-improving-efficiency-for-OS.html" class="post-meta-item leancloud_visitors" data-flag-title="一些提高效率的系统工具" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/09/Some-tools-of-improving-efficiency-for-OS.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/09/Some-tools-of-improving-efficiency-for-OS.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一些提高效率的系统工具"><a href="#一些提高效率的系统工具" class="headerlink" title="一些提高效率的系统工具"></a>一些提高效率的系统工具</h1><p>前两天总结了 <strong><em><a href="/2016/09/Some-tweaks-of-improving-efficiency-for-OS.html">一些提高效率的系统调整</a></em></strong>，现在总结一些常用的提高效率的工具。</p>
+<h2 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h2><p>通常，新机装好，我会装上一个小软件，那就是<code>Notepad++</code>，包括现在我在Windows下面写笔记也是用的这个，对于任何文本文件，它都可以方便的右键打开。如果是开大文件，<code>EmEditor</code>是个不错的选择。当然如果系统中存在一个<code>bash</code>终端或者有<code>Git GUI</code>类似可以使用Linux强大命令工具，<code>vim/more/less</code>可以随便用了。 <img src="/images/Google.jpg" alt="Google"> <a id="more"></a></p>
+<h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><p>装完系统我会装一个叫<code>Folder Colorizer</code>的工具，顾名思义，它是给文件夹上色的，当目录下存在大量文件夹时，可以用颜色来区分一些类别，比如说我的所有软件都放在D盘，其中，游戏文件夹就会用红色标识出来，还有一些类别会用其他颜色。如果是文档文件夹，也会根据内容来做一些区分。</p>
+<h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><p>Win10中内置了一个Ubuntu 14.04，不过自带的终端确实不好用，目前进bash的还不能输中文。于是乎，我找了一个替代者—-<code>Cmder</code>，可以添加右键在此打开终端，各种配置也很方便，界面也很友好。</p>
+<h2 id="剪贴板"><a href="#剪贴板" class="headerlink" title="剪贴板"></a>剪贴板</h2><p>我开始用的剪贴板工具是<code>CLCL</code>，后来换成了<code>Ditto</code>。更多请参考<strong><em><a href="https://xbeta.info/clipx-clcl-ditto.htm" target="_blank" rel="noopener">剪贴板增强软件综述</a></em></strong>，这是开机启动的。</p>
+<h2 id="色温"><a href="#色温" class="headerlink" title="色温"></a>色温</h2><p>自己的眼睛有一些问题，太白，太亮的屏幕会难受，不喜欢冷色调，找了色温软件。Windows用的<code>f.lux</code>，Linux可以使用<code>redshift</code>都是可以按照日落时间来日内变化的，当然也是开机启动。如果没用过，可能不会了解，可一旦用了就知道好了。当然如果条件好还是配一个又大，质量又好的显示器，许多显示器都可以调色温，现在iOS 10都可以调色温了，之前越狱时也用<code>f.lux</code>，安卓也有类似软件<code>CF.lumen</code>。当然，如果手机和电脑都配一个暗色主题就更好了，既为国家省电，又为自己省眼，像上面Google首页一样。</p>
+<h2 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h2><p>之前Win10未出之前曾找过多桌面软件，发现<code>Dexpot</code>还不错，后来Win10自带多桌面了。但是<code>Dexpot</code>还有一个不错的功能，可以让窗口置顶。启动软件之后，每个打开的窗口标题栏右键会出现dexpot一项，如果没有可以尝试重开窗口，里面有一个”总在顶层”可以让窗口一直置顶，当然还有透明等其他功能。</p>
+<h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><p>装完系统之后，我都会装一个小工具，<code>CCleaner</code>，之前用来管理启动项和计划任务，现在Win10任务管理器已经可以管理了，但还是留下了使用<code>CCleaner</code>的习惯，常用的还有清理注册表，当然还有一些其他功能。此外，自己常用的清理注册表的工具还有<code>Wise Care 365</code>，这个注册表清理的还是不错的。</p>
+<h2 id="右键管家"><a href="#右键管家" class="headerlink" title="右键管家"></a>右键管家</h2><p><code>右键管家</code>也是装机必备，当然绿色版的就行，一直会在D盘放着，然后弄一个快捷方式到开始菜单。虽然貌似软件已不再更新，而且也没再寻找类似功能的软件。这个初衷是清除冗余的右键，包括桌面右键，文件夹右键等，每次装完系统我都会清理一番，确保右键菜单清洁。</p>
+<h2 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h2><p>开机启动的还有一个就是<code>Shadowsocks</code>，这是一个VPN软件，之前曾写过关于<strong><em><a href="/2016/05/Free-Internet-access-just-do-it.html">自由上网</a></em></strong>的文章。</p>
+<hr>
+<p>由于现在是总结一些提高效率的工具，而不是常用软件介绍，所以一些软件不在这里介绍，可能会开新文章吧。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+              <a href="/tags/software/" rel="tag"># software</a>
+              <a href="/tags/efficiency/" rel="tag"># efficiency</a>
+              <a href="/tags/OS/" rel="tag"># OS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/09/Some-tweaks-of-improving-efficiency-for-OS.html" rel="prev" title="一些提高效率的系统调整">
+      <i class="fa fa-chevron-left"></i> 一些提高效率的系统调整
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/09/Sequence.html" rel="next" title="关于测序原理">
+      关于测序原理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些提高效率的系统工具"><span class="nav-number">1.</span> <span class="nav-text">一些提高效率的系统工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本编辑"><span class="nav-number">1.1.</span> <span class="nav-text">文本编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件夹"><span class="nav-number">1.2.</span> <span class="nav-text">文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#终端"><span class="nav-number">1.3.</span> <span class="nav-text">终端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪贴板"><span class="nav-number">1.4.</span> <span class="nav-text">剪贴板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#色温"><span class="nav-number">1.5.</span> <span class="nav-text">色温</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口"><span class="nav-number">1.6.</span> <span class="nav-text">窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统管理"><span class="nav-number">1.7.</span> <span class="nav-text">系统管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右键管家"><span class="nav-number">1.8.</span> <span class="nav-text">右键管家</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#翻墙"><span class="nav-number">1.9.</span> <span class="nav-text">翻墙</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zz_zigzag"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">zz_zigzag</p>
+  <div class="site-description" itemprop="description">黎明之晓，日出东方</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zz-zigzag" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zz-zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@xiaodong.dev" title="E-Mail → mailto:me@xiaodong.dev" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zigzagwb" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zigzagwb" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zz_zigzag" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zz_zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zz4zigzag" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;zz4zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备18025453号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zz_zigzag</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260429262&web_id=1260429262"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz',
+            'X-LC-Key': 'pe46eCq4Hq4MSwg7J8W2L0mR',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'EhjFgOBoMaC8Pwx2RxrKqyWo-gzGzoHsz',
+    appKey: 'oJEgPRzxCb3XrCc1vMen96jV',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

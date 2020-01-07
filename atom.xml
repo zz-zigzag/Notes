@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>zz_zigzag Notes</title>
+  
+  <subtitle>黎明之晓，日出东方</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://notes.zz-zigzag.com/"/>
+  <updated>2018-04-11T00:57:46.000Z</updated>
+  <id>https://notes.zz-zigzag.com/</id>
+  
+  <author>
+    <name>zz_zigzag</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的Chrome插件列表</title>
+    <link href="https://notes.zz-zigzag.com/2018/04/my-chrome-plugins.html"/>
+    <id>https://notes.zz-zigzag.com/2018/04/my-chrome-plugins.html</id>
+    <published>2018-04-09T15:43:26.000Z</published>
+    <updated>2018-04-11T00:57:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>用Chrome八九年了，插件一点的一点积累越来越多，之前写过<a href="/2016/10/some-plugin-of-improving-efficiency-for-chrome">一些提高效率的Chrome插件</a>，这里做个完整总结备份，供自己记录和大家参考。</p><p>以下插件是我目前Chrome中的插件，之前被删了的当然就不会列出了，也有一些插件，虽然将来可能不会再用，但毕竟曾经陪伴过我一段时间，也没有删除而是在此列出来了。</p></blockquote><p><img src="/images/beauty/chrome-logo.png" alt="来张图片轻松一下"></p><a id="more"></a><h1 id="保持常开"><a href="#保持常开" class="headerlink" title="保持常开"></a>保持常开</h1><ol><li><a href="https://chrome.google.com/webstore/detail/%E4%B8%80%E9%94%AE%E7%AE%A1%E7%90%86%E6%89%80%E6%9C%89%E6%89%A9%E5%B1%95/niemebbfnfbjfojajlmnbiikmcpjkkja" target="_blank" rel="noopener">一键管理所有扩展</a> 因为扩展越来越多，经常需要打开<code>chrome://extensions/</code> 是很不方便的，因为Chrome有些插件会常开常关，此外Chrome比较臃肿，开扩展多了会占用较多内存。</li><li><a href="https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom" target="_blank" rel="noopener">AdBlock</a> 拦截广告的，可能是装的第一个Chrome插件</li><li><a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif" target="_blank" rel="noopener">Proxy SwitchyOmega</a> 管理Chrome代理，可以做到根据网址动态适配，配合SSH或Shadowsocks，相当有用。</li><li><a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb" target="_blank" rel="noopener">Vimium</a> 仿照Vim快捷键，可以使用键盘浏览网页，更方便的是可以便捷搜索书签和浏览记录，一上手就离不开</li><li><a href="https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg" target="_blank" rel="noopener">The Great Suspender</a> 经常有Chrome上面开着几十个标签的习惯，Chrome可是很吃内存的，动辄占用上G的内存，这个插件就是把超过一定时间没浏览的网页挂起，可设置全部【挂起/激活】的快捷键</li><li><a href="https://chrome.google.com/webstore/detail/gayhub/mdcffelghikdiafnfodjlgllenhlnejl" target="_blank" rel="noopener">GayHub</a> 作为一个每天使用Github的程序员，常开这个也情有可原了，更方便的使用Github</li><li><a href="https://chrome.google.com/webstore/detail/%E6%8E%98%E9%87%91/lecdifefmmfjnjjinhaennhdlmcaeeeb" target="_blank" rel="noopener">掘金</a> 替换新标签页，为掘金（程序员）的头条</li><li><a href="https://chrome.google.com/webstore/detail/raindropio-save-button-fo/ldgfbffkinooeloadekpmfoklnobpien" target="_blank" rel="noopener">Raindrop.io: “Save Button” for Web</a> 一直在寻找一个能收藏网页的服务，后来碰到了这个，我用它保存阅读过得好文章，便于以后自己查阅</li><li><a href="https://chrome.google.com/webstore/detail/shouqu/ofmcnfnfchmhlchdifeobmjjhmkijpnf" target="_blank" rel="noopener">收趣</a> 国内优秀的稍后阅读产品，之前使用Pocket，后来用收趣，稍后阅读功能强大，可从各个途径收藏，可推送Kindle。不同于Raindrop，我用这个做稍后阅读，并非收藏功能。</li><li><a href="https://chrome.google.com/webstore/detail/simpread-reader-view/ijllcpnolfcooahcekpamkbidhejabll" target="_blank" rel="noopener">简悦 - SimpRead</a> 国内有一款良心产品，官方广告【简】单阅读，愉【悦】心情 ，</li></ol><h1 id="偶尔使用"><a href="#偶尔使用" class="headerlink" title="偶尔使用"></a>偶尔使用</h1><ol><li>LessPass 随机生成密码使用，保存于Chrome，不占用脑子记。</li><li>Tampermonkey，油猴脚本，常用其看各大视频网站VIP</li></ol><h1 id="论文学术"><a href="#论文学术" class="headerlink" title="论文学术"></a>论文学术</h1><ol><li>Google学术搜索按钮</li><li>Google 翻译</li></ol><h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><h2 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h2><ol><li>Stylish-为任意网站自定义主题</li><li>Stylus，和上面那个长的很像</li></ol><h2 id="夜间模式"><a href="#夜间模式" class="headerlink" title="夜间模式"></a>夜间模式</h2><ol><li>Midnight Lizard 适配所有网站，比第二个好用</li><li>Dark Mode 适配所有网站，经常不好看</li><li>Darkness - 精美的深色主题，适配谷歌脸书等特定网站</li></ol><h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="新标签页"><a href="#新标签页" class="headerlink" title="新标签页"></a>新标签页</h2><ol><li>Infinity新标签页，陪伴我一段时间，但后来觉得用不上了</li><li>Rowe News New Tab</li></ol><h2 id="标签搜索"><a href="#标签搜索" class="headerlink" title="标签搜索"></a>标签搜索</h2><ol><li>Neater Bookmarks 官宣：灵巧实用的弹出书签</li><li>Chromarks - Chrome Bookmarks Menu，搜标签的，外观难看点，不过确实好用</li></ol><h2 id="收藏标签"><a href="#收藏标签" class="headerlink" title="收藏标签"></a>收藏标签</h2><ol><li>Larder: Bookmarking for developers，现在用收趣和Raindrop了</li><li>Evernote Web Clipper ，保存到Evernote，好多年未再使用了</li><li>Save to Pocket</li><li>Send to Kindle for Google Chrome</li><li>Wakelet，Save any webpage, anywhere.</li></ol><h2 id="整理网页（标签）"><a href="#整理网页（标签）" class="headerlink" title="整理网页（标签）"></a>整理网页（标签）</h2><ol><li>OneTab 把所有打开的网页暂时收藏在一个页面上，降低内存</li><li>Tabs Outliner，把当前打开的网页，作为一个组暂时记下，之后再用可瞬间恢复，我想找一个能持久化云存储的这样的服务。比如我正在研究什么，开了10个网页，可以持久化保存此分组，过两天继续使用。</li><li>SuperSorter 这个真是整理收藏夹的，但是慎用，好像会导致乱序</li></ol><h2 id="其他关于标签"><a href="#其他关于标签" class="headerlink" title="其他关于标签"></a>其他关于标签</h2><ol><li>SimpleUndoClose 打开关闭的标签</li><li>Full Page Screen Capture，截网页整图，更常用FastStone Capture，无论录屏还是截图</li></ol><h1 id="记"><a href="#记" class="headerlink" title="记"></a>记</h1><ol><li>Google Keep Chrome 谷歌的产品确实优秀，只是暂时没养成习惯使用或没相应的需求</li></ol><h1 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h1><ol><li>cVim，许多人说比Vimium好用，更强大，但我是先入为主习惯后者了。</li><li>Steward - a command launcher 官宣：启动器/便捷管理扩展/应用/标签/历史记录等。神器，功能强大，入手慢些，有许多功能同Vim，有点重，暂未上手</li></ol><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol><li>GitHub File Icon，有了GayHub，这个暂时不用了</li><li>SimilarWeb - 网站流量来源和排名</li><li>Markdown Here 官宣：用Markdown写一封漂亮的电子邮件</li><li>Listen 1 整合几大音乐平台，偶尔听歌使用</li><li>Noisli，偶尔直接上网站，听水声</li><li>番茄土豆，遇见庞大长期任务的时候，会打开这个，买个会员，静静的使用</li><li>Super Auto Refresh，有时候需要刷新网页</li><li>IE Tab 官宣：以IE内核显示网页。好多年以前偶尔使用，现在基本不用了，用IE的机会不多了</li></ol><h1 id="开发常用"><a href="#开发常用" class="headerlink" title="开发常用"></a>开发常用</h1><ol><li>ElasticSearch Head</li><li>Page Ruler</li><li>Wappalyzer，看当前网站使用的框架，技术栈，以及那些第三方服务</li><li>WhatRuns ，同上基本一致</li><li>WhatFont，点击网页文字，可识别出其字体</li></ol><p>文章最后来一张大图，我的<code>chrome://extensions</code>，要右键打开才能看得清</p><p><img src="/images/my-chrome-plugin-list.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;用Chrome八九年了，插件一点的一点积累越来越多，之前写过&lt;a href=&quot;/2016/10/some-plugin-of-improving-efficiency-for-chrome&quot;&gt;一些提高效率的Chrome插件&lt;/a&gt;，这里做个完整总结备份，供自己记录和大家参考。&lt;/p&gt;
+&lt;p&gt;以下插件是我目前Chrome中的插件，之前被删了的当然就不会列出了，也有一些插件，虽然将来可能不会再用，但毕竟曾经陪伴过我一段时间，也没有删除而是在此列出来了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/images/beauty/chrome-logo.png&quot; alt=&quot;来张图片轻松一下&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="总结备份" scheme="https://notes.zz-zigzag.com/categories/%E6%80%BB%E7%BB%93%E5%A4%87%E4%BB%BD/"/>
+    
+    
+      <category term="plugin" scheme="https://notes.zz-zigzag.com/tags/plugin/"/>
+    
+      <category term="Chrome" scheme="https://notes.zz-zigzag.com/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PowerDesigner协作环境配置</title>
+    <link href="https://notes.zz-zigzag.com/2018/03/PowerDesigner-sync-setup.html"/>
+    <id>https://notes.zz-zigzag.com/2018/03/PowerDesigner-sync-setup.html</id>
+    <published>2018-03-22T11:47:12.000Z</published>
+    <updated>2018-04-25T07:23:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PowerDesigner协作环境配置"><a href="#PowerDesigner协作环境配置" class="headerlink" title="PowerDesigner协作环境配置"></a>PowerDesigner协作环境配置</h1><h2 id="配置本机odbc数据源"><a href="#配置本机odbc数据源" class="headerlink" title="配置本机odbc数据源"></a>配置本机odbc数据源</h2><p>在Oracle数据库上建一个用户用于pd使用，然后配置windows odbc数据源。如果pd为64位则配置64位数据源，参考<a href="https://www.cnblogs.com/ericli/p/6806080.html" target="_blank" rel="noopener">windows10 建立ODBC数据源</a></p><a id="more"></a><h2 id="配置Repository"><a href="#配置Repository" class="headerlink" title="配置Repository"></a>配置Repository</h2><p>菜单栏 Repository –&gt; Repository Definitions新增一个，使用刚建的odbc数据源。<br><img src="/images/PowerDesigner-sync-setup/1.jpg" alt="img"></p><h2 id="接数据库和管理用户"><a href="#接数据库和管理用户" class="headerlink" title="接数据库和管理用户"></a>接数据库和管理用户</h2><p>菜单栏 Repository–&gt; Connect，输入一个用于登录的账号密码，如果是第一次初始化协作配置，会让配置一个ADMIN用户密码<br><img src="/images/PowerDesigner-sync-setup/2.jpg" alt="img"><br>初始化完毕之后，可通过Repository –&gt; Administration-&gt; Users来管理用户，如下图建立一个zhangxiaodong的用户，可查看或重置密码，分配所属用户组以及设置权限等<br><img src="/images/PowerDesigner-sync-setup/3.jpg" alt="img"><br>之后，可使用新建的用户登陆了，如下图，新用户登录会提示修改密码。<br><img src="/images/PowerDesigner-sync-setup/4.jpg" alt="img"></p><h2 id="上传和下载（check-in-check-out）"><a href="#上传和下载（check-in-check-out）" class="headerlink" title="上传和下载（check in/check out）"></a>上传和下载（check in/check out）</h2><p>菜单栏 Repository –&gt; check in/check out，选择相应文档操作即可</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;PowerDesigner协作环境配置&quot;&gt;&lt;a href=&quot;#PowerDesigner协作环境配置&quot; class=&quot;headerlink&quot; title=&quot;PowerDesigner协作环境配置&quot;&gt;&lt;/a&gt;PowerDesigner协作环境配置&lt;/h1&gt;&lt;h2 id=&quot;配置本机odbc数据源&quot;&gt;&lt;a href=&quot;#配置本机odbc数据源&quot; class=&quot;headerlink&quot; title=&quot;配置本机odbc数据源&quot;&gt;&lt;/a&gt;配置本机odbc数据源&lt;/h2&gt;&lt;p&gt;在Oracle数据库上建一个用户用于pd使用，然后配置windows odbc数据源。如果pd为64位则配置64位数据源，参考&lt;a href=&quot;https://www.cnblogs.com/ericli/p/6806080.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;windows10 建立ODBC数据源&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="version control" scheme="https://notes.zz-zigzag.com/tags/version-control/"/>
+    
+      <category term="PowerDesigner" scheme="https://notes.zz-zigzag.com/tags/PowerDesigner/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Enterprise Architect协作环境配置</title>
+    <link href="https://notes.zz-zigzag.com/2018/03/Enterprise-Architect-sync-setup.html"/>
+    <id>https://notes.zz-zigzag.com/2018/03/Enterprise-Architect-sync-setup.html</id>
+    <published>2018-03-22T11:32:28.000Z</published>
+    <updated>2018-03-22T11:57:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Enterprise-Architect协作环境配置"><a href="#Enterprise-Architect协作环境配置" class="headerlink" title="Enterprise Architect协作环境配置"></a>Enterprise Architect协作环境配置</h1><h2 id="配置一个SVN-server"><a href="#配置一个SVN-server" class="headerlink" title="配置一个SVN server"></a>配置一个SVN server</h2><p>在SVN server新建一个仓库用于EA协作使用，此处为名称为ea<br><img src="/images/Enterprise-Architect-sync-setup/1.jpg" alt="img"></p><a id="more"></a><h2 id="初次上传EA项目"><a href="#初次上传EA项目" class="headerlink" title="初次上传EA项目"></a>初次上传EA项目</h2><ol><li>本地新建一个目录，如d:\UserData\Desktop\协作配置\svn-打卡与考勤管理系统，把上一步新建的仓库检出到本地，此时目录为空，只有.svn配置文件。</li><li>在EA项目中，右键项目-&gt;Package Control -&gt;Version Control setting，填入如下信息保存。<br><img src="/images/Enterprise-Architect-sync-setup/2.jpg" alt="img"></li><li>右键项目-&gt;Package Control -&gt; AddBranch to Version Control 选中刚才新建的确定即可，此时会在目录中自动生成项目文件。<br><img src="/images/Enterprise-Architect-sync-setup/3.jpg" alt="img"></li></ol><h2 id="初次下载EA项目"><a href="#初次下载EA项目" class="headerlink" title="初次下载EA项目"></a>初次下载EA项目</h2><ol><li>使用SVN客户端工具把仓库中文件检出。</li><li>新建空项目，右键-&gt; Package Control-&gt;Import a Model Branch，选择svn目录下的EAB文件，如图<br><img src="/images/Enterprise-Architect-sync-setup/4.jpg" alt="img"><br>参考上一步补充版本控制信息，保存关闭后会自动导入项目。</li></ol><h2 id="协作编辑"><a href="#协作编辑" class="headerlink" title="协作编辑"></a>协作编辑</h2><p>在要编辑的包上右键-&gt; Package Control里面有协作编辑的功能，需要注意，编辑文件之前需要检出（check out），检出状态其他人不可再检出编辑，编辑完成及时检入（check in）。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Enterprise-Architect协作环境配置&quot;&gt;&lt;a href=&quot;#Enterprise-Architect协作环境配置&quot; class=&quot;headerlink&quot; title=&quot;Enterprise Architect协作环境配置&quot;&gt;&lt;/a&gt;Enterprise Architect协作环境配置&lt;/h1&gt;&lt;h2 id=&quot;配置一个SVN-server&quot;&gt;&lt;a href=&quot;#配置一个SVN-server&quot; class=&quot;headerlink&quot; title=&quot;配置一个SVN server&quot;&gt;&lt;/a&gt;配置一个SVN server&lt;/h2&gt;&lt;p&gt;在SVN server新建一个仓库用于EA协作使用，此处为名称为ea&lt;br&gt;&lt;img src=&quot;/images/Enterprise-Architect-sync-setup/1.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="Enterprise Architect" scheme="https://notes.zz-zigzag.com/tags/Enterprise-Architect/"/>
+    
+      <category term="version control" scheme="https://notes.zz-zigzag.com/tags/version-control/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于硬链接、软链接和快捷方式</title>
+    <link href="https://notes.zz-zigzag.com/2018/02/symbolic-link.html"/>
+    <id>https://notes.zz-zigzag.com/2018/02/symbolic-link.html</id>
+    <published>2018-02-25T09:08:41.000Z</published>
+    <updated>2018-03-21T15:05:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于硬链接、软链接和快捷方式"><a href="#关于硬链接、软链接和快捷方式" class="headerlink" title="关于硬链接、软链接和快捷方式"></a>关于硬链接、软链接和快捷方式</h1><h2 id="硬链接、软链接"><a href="#硬链接、软链接" class="headerlink" title="硬链接、软链接"></a>硬链接、软链接</h2><p>在UNIX/Linux文件系统中，文件类型分为普通文件、目录文件、设备文件和符号链接等几类。每个文件的存储包含三部分，分别是文件名(filename)、文件说明(inode)、数据块(data block)。打开文件时，通过文件名找到inode id，然后找到inode，根据inode信息找到数据块。</p><blockquote><p>关于inode，参考<a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="noopener">阮一峰的【理解inode】</a>，其中阐述比较详细，也介绍了软硬链接。</p></blockquote><p>系统允许不同文件名，对应到同一inode，这就是所谓的<strong>硬链接（hard links）</strong>，可使用<code>ln</code>命令创建。此外，inode中会记录指向自己文件名的个数，方便删除操作，即个数为0才会回收数据块。</p><p>而<strong>软链接（symlink）又称符号链接</strong>是一种特殊类型的文件，它指向源文件，甚至指向其他文件系统（远端）的文件，当然所指向的文件也可能被删了，此时类似于空指针，可使用<code>ln -s</code> 命令创建。需要注意，软链接可用相对地址或绝对地址，如果相对地址的软链接，移动之后可能会失效。删除目录软链接时，切记<code>rm smlink</code>而不是<code>rm smlink/</code>后者会</p><p><strong>目录不允许创建硬链接</strong>，试想，如果不同目录下的子目录指向同一个目录（inode)，可能会存在子目录中包含父目录的情况，造成目录死循环，如<code>cp</code>等命令会失效。这是因为硬链接太逼真了，无法区分这个是源文件还是硬链接，都是平等的，目前文件系统的设计，无法处理这种情况；但是，<strong>可以对目录建立软链接</strong>，它只是一种特殊类型的文件，里面存储了源文件的路径，在遍历目录时只把它当成一种文件来看待。需要注意的是，在复制目录时，是可以对目录下的文件均复制为硬链接的，<code>cp -al</code>，但这和对目录创建硬链接是有本质区别的。此处可参考如：</p><blockquote><p><a href="https://unix.stackexchange.com/questions/22394/why-are-hard-links-to-directories-not-allowed-in-unix-linux" target="_blank" rel="noopener">Why are hard links to directories not allowed in UNIX/Linux?</a><br><a href="https://askubuntu.com/questions/210741/why-are-hard-links-not-allowed-for-directories" target="_blank" rel="noopener">Why are hard links not allowed for directories?</a></p></blockquote><a id="more"></a><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>硬链接的使用较少，有一句话如下</p><blockquote><p>You generally should not use hard links anyway</p></blockquote><p>也就是不建议使用硬链接，确实应用场景不多，但存在即合理，有时用其拷贝文件防止误删。</p><h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>我们通常使用的都是软链接，它是操作系统级别的，大部分情况会应用程序被当成实实在在真实文件/目录一样，以下应用场景皆为这个原理。Linux系统中就存在大量软链接，常见的有</p><h4 id="文件软链接"><a href="#文件软链接" class="headerlink" title="文件软链接"></a>文件软链接</h4><ol><li><p>比如某包安装目录下的可执行文件，会被软链接到<code>$PATH</code>中，如<code>/usr/bin</code>中</p></li><li><p>重命名。一些库文件<code>.so</code>等，会通过软链接去掉后面的版本，方便动态编译使用，经常遇到一些开源包编译不通过，缺少相关动态链接库，需要这样加个软链接解决一下，如常见的libz</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libz.so -&gt; libz.so.1.2.7  </span><br><span class="line">libz.so.1 -&gt; libz.so.1.2.7</span><br><span class="line">libz.so.1.2.7</span><br></pre></td></tr></table></figure></li><li><p>将某些无用文件指向 <code>/dev/null</code>，如某日志<code>ln -s /dev/null /data/temp.log</code></p></li></ol><h4 id="目录软链接"><a href="#目录软链接" class="headerlink" title="目录软链接"></a>目录软链接</h4><ol><li>分区容量扩容，某分区容量吃紧，可以通过将其他分区的目录软链接过来使用。或者文件移动过去，再软链接回来保持原路径不变，既节省了容量，也免除了路径更改带来的配置修改。</li><li>在版本升级中，更改路径名之后，会建立软链接到旧目录兼容旧版本。</li><li>将目录的软链接放到网盘目录中，网盘会同步此目录。</li></ol><h2 id="Windows中建立软链接"><a href="#Windows中建立软链接" class="headerlink" title="Windows中建立软链接"></a>Windows中建立软链接</h2><p>使用<code>mklink</code>在Windows中建立软硬链接，默认给文件建立软链接，如果给目录建立软链接，需要加<code>/D</code>参数，硬链接需要<code>/H</code>参数。此外NTFS格式的磁盘还特有一种Junction，和软链接类似，且只能用于文件夹。</p><h2 id="关于复制和剪切软硬链接"><a href="#关于复制和剪切软硬链接" class="headerlink" title="关于复制和剪切软硬链接"></a>关于复制和剪切软硬链接</h2><p>弄清了软硬链接的原理，对复制和粘贴的结果会有一个预期，Linux下复制和剪切均符合预期，<strong>windows下复制软链接时会复制源目标，变为普通文件或目录</strong>，对文件夹Junction的剪切，会使其变为普通文件夹，并且把子文件全剪切过来。</p><h2 id="快捷方式"><a href="#快捷方式" class="headerlink" title="快捷方式"></a>快捷方式</h2><p>最后说说快捷方式，它是更高层一点的应用，不同于软硬链接是文件管理和操作系统层面的东西。Windows环境下，它是一种后缀名为<code>.lnk</code>的普通文件，被系统的桌面环境，资源管理器(explorer.exe)解析。它类似于软链接，但是功能更丰富些，可以增加启动参数，快捷键等。</p><p>Linux的桌面系统也有类似Windows快捷方式的东西。如Unity、KDE、GNOME，它们使用<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html" target="_blank" rel="noopener">Desktop Entry 文件标准</a>来描述程序启动配置信息，后缀为<code>.desktop</code>的文本文件，文本格式如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ cat goagent-gtk.desktop</span><br><span class="line"><span class="comment">#!/usr/bin/env xdg-open</span></span><br><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=GoAgent GTK</span><br><span class="line">Comment=GoAgent GTK Launcher</span><br><span class="line">Categories=Network;Proxy;</span><br><span class="line">Exec=/usr/bin/env python <span class="string">"/home/zz_zigzag/software/agent/goagent-gtk.py"</span></span><br><span class="line">Icon=/home/zz_zigzag/software/agent/goagent-logo.png</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br></pre></td></tr></table></figure><p>统一放在/usr/share/applications下被桌面系统索引。</p><h2 id="参考连接-附录"><a href="#参考连接-附录" class="headerlink" title="参考连接|附录"></a>参考连接|附录</h2><blockquote><p><a href="https://en.wikipedia.org/wiki/Symbolic_link" target="_blank" rel="noopener">Symbolic link</a><br> <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank" rel="noopener">理解 Linux 的硬链接与软链接</a><br><a href="http://www.binarythink.net/2013/06/windows-link/" target="_blank" rel="noopener">Windows的四种链接方式</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="noopener">阮一峰的【理解inode】</a><br><a href="http://blog.csdn.net/xiaokang123456kao/article/details/74171875" target="_blank" rel="noopener">深入理解操作系统原理之文件系统</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;关于硬链接、软链接和快捷方式&quot;&gt;&lt;a href=&quot;#关于硬链接、软链接和快捷方式&quot; class=&quot;headerlink&quot; title=&quot;关于硬链接、软链接和快捷方式&quot;&gt;&lt;/a&gt;关于硬链接、软链接和快捷方式&lt;/h1&gt;&lt;h2 id=&quot;硬链接、软链接&quot;&gt;&lt;a href=&quot;#硬链接、软链接&quot; class=&quot;headerlink&quot; title=&quot;硬链接、软链接&quot;&gt;&lt;/a&gt;硬链接、软链接&lt;/h2&gt;&lt;p&gt;在UNIX/Linux文件系统中，文件类型分为普通文件、目录文件、设备文件和符号链接等几类。每个文件的存储包含三部分，分别是文件名(filename)、文件说明(inode)、数据块(data block)。打开文件时，通过文件名找到inode id，然后找到inode，根据inode信息找到数据块。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于inode，参考&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/12/inode.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;阮一峰的【理解inode】&lt;/a&gt;，其中阐述比较详细，也介绍了软硬链接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;系统允许不同文件名，对应到同一inode，这就是所谓的&lt;strong&gt;硬链接（hard links）&lt;/strong&gt;，可使用&lt;code&gt;ln&lt;/code&gt;命令创建。此外，inode中会记录指向自己文件名的个数，方便删除操作，即个数为0才会回收数据块。&lt;/p&gt;
+&lt;p&gt;而&lt;strong&gt;软链接（symlink）又称符号链接&lt;/strong&gt;是一种特殊类型的文件，它指向源文件，甚至指向其他文件系统（远端）的文件，当然所指向的文件也可能被删了，此时类似于空指针，可使用&lt;code&gt;ln -s&lt;/code&gt; 命令创建。需要注意，软链接可用相对地址或绝对地址，如果相对地址的软链接，移动之后可能会失效。删除目录软链接时，切记&lt;code&gt;rm smlink&lt;/code&gt;而不是&lt;code&gt;rm smlink/&lt;/code&gt;后者会&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;目录不允许创建硬链接&lt;/strong&gt;，试想，如果不同目录下的子目录指向同一个目录（inode)，可能会存在子目录中包含父目录的情况，造成目录死循环，如&lt;code&gt;cp&lt;/code&gt;等命令会失效。这是因为硬链接太逼真了，无法区分这个是源文件还是硬链接，都是平等的，目前文件系统的设计，无法处理这种情况；但是，&lt;strong&gt;可以对目录建立软链接&lt;/strong&gt;，它只是一种特殊类型的文件，里面存储了源文件的路径，在遍历目录时只把它当成一种文件来看待。需要注意的是，在复制目录时，是可以对目录下的文件均复制为硬链接的，&lt;code&gt;cp -al&lt;/code&gt;，但这和对目录创建硬链接是有本质区别的。此处可参考如：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://unix.stackexchange.com/questions/22394/why-are-hard-links-to-directories-not-allowed-in-unix-linux&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Why are hard links to directories not allowed in UNIX/Linux?&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://askubuntu.com/questions/210741/why-are-hard-links-not-allowed-for-directories&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Why are hard links not allowed for directories?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Windows" scheme="https://notes.zz-zigzag.com/tags/Windows/"/>
+    
+      <category term="Linux" scheme="https://notes.zz-zigzag.com/tags/Linux/"/>
+    
+      <category term="file" scheme="https://notes.zz-zigzag.com/tags/file/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最后一次总结正则表达式（RegExp）</title>
+    <link href="https://notes.zz-zigzag.com/2018/02/RegExp.html"/>
+    <id>https://notes.zz-zigzag.com/2018/02/RegExp.html</id>
+    <published>2018-02-25T06:04:45.000Z</published>
+    <updated>2018-04-10T05:35:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="最后一次总结正则表达式（RegExp）"><a href="#最后一次总结正则表达式（RegExp）" class="headerlink" title="最后一次总结正则表达式（RegExp）"></a>最后一次总结正则表达式（RegExp）</h1><p>正则很强大，但有时候就是不知道如何用它，或想不起来用它，之前写过简单的<a href="https://notes.zz-zigzag.com/2016/04/regexp-grammar-introduction">RegExp 常用语法</a>，这次把语法再简单复习一遍，并努力的描述了正则的应用场景，再加上几个练习以加深印象，希望是自己最后一次总结正则。</p><a id="more"></a><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><table><thead><tr><th>字符</th><th>含义</th></tr></thead><tbody><tr><td>?</td><td>0或1次</td></tr><tr><td>+</td><td>1次或多次</td></tr><tr><td>*</td><td>0次或多次</td></tr><tr><td>{n,m}</td><td>n-m次</td></tr><tr><td>{n,}</td><td>n次或更多</td></tr><tr><td>{n}</td><td>n次</td></tr></tbody></table><h3 id="预定义类"><a href="#预定义类" class="headerlink" title="预定义类"></a>预定义类</h3><table><thead><tr><th>字符</th><th>等价类</th></tr></thead><tbody><tr><td>.</td><td>[^\n]</td></tr><tr><td>\d</td><td>[0-9]</td></tr><tr><td>\s</td><td>[ \f\n\r\t\v]</td></tr><tr><td>\S</td><td>[^ \f\n\r\t\v]</td></tr><tr><td>\w</td><td>[a-zA-Z_0-9]</td></tr><tr><td>\W</td><td>[^a-zA-Z_0-9]</td></tr></tbody></table><h3 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h3><p>并没有实际匹配任何字符，只是单纯匹配边界</p><table><thead><tr><th>字符</th><th>含义</th></tr></thead><tbody><tr><td>^</td><td>开始</td></tr><tr><td>$</td><td>结尾</td></tr><tr><td>\b</td><td>单词开始或结束</td></tr><tr><td>\B</td><td>非单词开始或结束</td></tr></tbody></table><h3 id="贪婪"><a href="#贪婪" class="headerlink" title="贪婪"></a>贪婪</h3><p>正则表达式默认贪婪模式，在量词后面加<code>?</code>可启用非贪婪模式。</p><h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><ul><li>将量词作用于子表达式，如(zz_zigzag){2}</li><li>(?:exp)，会忽略该分组，不会匹配组号</li></ul><h4 id="后向引用"><a href="#后向引用" class="headerlink" title="后向引用"></a>后向引用</h4><p><code>\b(\w+)\b\s+\1\b</code>，可匹配<code>he he</code>这样的字符串，<code>\1</code>指的是分组1匹配的内容</p><h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><p>相比于后向引用的<code>\1</code>，在替换时，<code>$1</code>指的是分组1匹配的内容</p><h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><ul><li>exp(?=assert)，如\w(?=\d)，意为后面有一个数字的单词字符。</li><li>exp(?!assert)，如\w(?!\d)，意为后面无一个数字的单词字符。</li><li>(?&lt;=assert)exp</li><li>(?&lt;!assert)exp</li></ul><h3 id="使用时常用"><a href="#使用时常用" class="headerlink" title="使用时常用"></a>使用时常用</h3><table><thead><tr><th>字符</th><th>含义</th></tr></thead><tbody><tr><td>g</td><td>globle</td></tr><tr><td>i</td><td>ignore case</td></tr><tr><td>m</td><td>multiline</td></tr></tbody></table><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>本质上均为匹配</p><ol><li>校验，通常为全词匹配，校验输入等。<ul><li>如邮箱，中文姓名，身份证，日期，手机号，IP地址，小数金额等</li></ul></li><li>查找或提取特定字符串，爬虫常用<ul><li>提取网页中图片（img标签），超链接（href标签）等</li></ul></li><li>替换，新增或删除<ul><li>删除注释，见练习3</li><li>新增，见练习1</li></ul></li><li>判断（特殊校验，使用断言）<ul><li>判断密码强度</li></ul></li></ol><h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol><li>数字格式化，1234567890 -&gt; 1,234,567,890。<code>\B(?=(\d{3})+$)</code>替换为<code>&quot;,&quot;</code>，<code>\B</code>待替换的内容——边界。加后置断言，当且紧跟3的倍数个数字——<code>(\d{3})+</code>。</li><li>trim函数实现，即去掉字符串左右的空白字符。<code>(^\s*)|(\s*$)</code>替换为<code>&quot;&quot;</code></li><li>删除注释<ol><li>HTML，<code>&lt;!--(.*?)--&gt;</code></li><li>C/JAVA: <code>((?&lt;!:)\/\/.*)|(\/*(.\s)*?\*\/)</code><ul><li><code>(?&lt;!:)</code>排除前面包含:的情况，防止<code>http://</code>的情况</li><li>替换//和/**/</li></ul></li></ol></li><li>判断素数（奇技淫巧，装B用，性能和可读性没优势） <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isPrime(num) &#123;</span><br><span class="line">    return !&#x2F;^1?$|^(11+?)\1+$&#x2F;.test(Array(num+1).join(&#39;1&#39;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>密码校验，要求包括字母，数字，特殊字符（_#$%等）<br> <code>^(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W\_]).{8,16}$</code></li></ol><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><blockquote><ol><li><a href="http://www.regular-expressions.info/" target="_blank" rel="noopener">http://www.regular-expressions.info/</a> 类似官方</li><li><a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">http://deerchao.net/tutorials/regex/regex.htm</a> 中文教程</li><li><a href="http://www.jb51.net/tools/regex_test.htm" target="_blank" rel="noopener">http://www.jb51.net/tools/regex_test.htm</a> 速查表</li><li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/" target="_blank" rel="noopener">https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/</a> cheatsheet速查</li></ol></blockquote><h3 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h3><blockquote><ol><li><a href="https://www.debuggex.com/" target="_blank" rel="noopener">https://www.debuggex.com/</a> 最好用，但经常访问不到或服务出错</li><li><a href="https://regex101.com/" target="_blank" rel="noopener">https://regex101.com/</a> </li><li><a href="https://regexper.com/" target="_blank" rel="noopener">https://regexper.com/</a> 只是解析表达式，不能测试匹配，可本地化</li><li><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a> 只是JS解析器</li></ol></blockquote><h3 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h3><blockquote><ol><li><a href="https://www.jianshu.com/p/e7bb97218946" target="_blank" rel="noopener">https://www.jianshu.com/p/e7bb97218946</a></li></ol></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;最后一次总结正则表达式（RegExp）&quot;&gt;&lt;a href=&quot;#最后一次总结正则表达式（RegExp）&quot; class=&quot;headerlink&quot; title=&quot;最后一次总结正则表达式（RegExp）&quot;&gt;&lt;/a&gt;最后一次总结正则表达式（RegExp）&lt;/h1&gt;&lt;p&gt;正则很强大，但有时候就是不知道如何用它，或想不起来用它，之前写过简单的&lt;a href=&quot;https://notes.zz-zigzag.com/2016/04/regexp-grammar-introduction&quot;&gt;RegExp 常用语法&lt;/a&gt;，这次把语法再简单复习一遍，并努力的描述了正则的应用场景，再加上几个练习以加深印象，希望是自己最后一次总结正则。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="CheatSheet" scheme="https://notes.zz-zigzag.com/tags/CheatSheet/"/>
+    
+      <category term="RegExp" scheme="https://notes.zz-zigzag.com/tags/RegExp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用微信聊天记录统计信息</title>
+    <link href="https://notes.zz-zigzag.com/2017/09/wechat-db.html"/>
+    <id>https://notes.zz-zigzag.com/2017/09/wechat-db.html</id>
+    <published>2017-09-26T03:25:02.000Z</published>
+    <updated>2017-09-27T01:58:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用微信聊天记录统计信息"><a href="#使用微信聊天记录统计信息" class="headerlink" title="使用微信聊天记录统计信息"></a>使用微信聊天记录统计信息</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>在公司食堂吃饭，由于每张饭卡每月需要缴纳150管理费，所以大家为了省钱几个或十几人共用一张饭卡，以此省钱。多人公用饭卡，这就涉及到一个记账的问题。充值需要记录，每人花费多少也要记录。</p><p>一种方案是，设计信息系统，大家吃完后自行记录，B/S或APP或文件，但多少有些不方便，容易忘记，造成坏账众多。后来找到简便易行之法——利用微信群，大家吃完后发送数字即可，除了记账，大家还可以互相监督，减少坏账。期间也想过微信公众号，类似桌游助手那种思路，或者小程序肯定也可以。但开发工作量较大，所有就一直用微信群做了。</p><p>但微信群统计有一个缺点，月末统计每人的花费比较麻烦。目前只能是，聊天记录按人筛选，然后手工输入到excel统计。这显然太麻烦了，一定要想个办法。</p><a id="more"></a><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>只要能导出聊天记录，就可以很简单的实现统计分析。但是偏偏微信的聊天记录好像不能导出文本或其他什么形式用于程序处理，所以此法不通。</p><p>另一种思路是读取微信PC端或移动端的本地数据库，直接统计。PC端不包含所有聊天记录，但微信移动端是会接受所以消息的，所以要拿到移动端的本地数据库，然后做一些统计即可。</p><h2 id="实施"><a href="#实施" class="headerlink" title="实施"></a>实施</h2><h3 id="获取数据库文件"><a href="#获取数据库文件" class="headerlink" title="获取数据库文件"></a>获取数据库文件</h3><p>借助谷歌，已经有人逆向微信APP，拿到本地数据库。</p><p>详情参照知乎的回答</p><blockquote><p><a href="https://www.zhihu.com/question/19924224" target="_blank" rel="noopener">https://www.zhihu.com/question/19924224</a></p></blockquote><p>这里简述一下，需要root的手机，拿到<code>/data/data/com.tencent.mm/MicroMsg/一个长串/EnMicroMsg.db</code>，文件为加密的，密钥为<code>md5(IMEI+UIN)</code>的前7位，手机序列号IMEI通常可在设置-&gt;关于中获得，或拨号键盘*#06#。我这里为IMEI1，UIN为用户信息号，可在<code>/data/data/com.tencent.mm/shared_prefs/system_config_prefs.xml</code>中获得，文件中default_uid的value即是。</p><h3 id="解密sqlite-database"><a href="#解密sqlite-database" class="headerlink" title="解密sqlite database"></a>解密sqlite database</h3><p>微信使用了<a href="https://github.com/sqlcipher/sqlcipher" target="_blank" rel="noopener">sqlcipher</a>做得加密，看来sqlcipher常用于安卓端sqlite数据库加密。</p><p>最初原本想在PC端引入sqlcipher的包连接db文件，后来发现sqlcipher主要是用于安卓应用，没找到普通java项目可用的库，于是作罢。</p><p>又了解到sqlcipher用了AES256做得加密，刚要手写AES解密，发现JDK自带AES为128位的，如若想用，还得下载额外的包，期间还去看过<a href="https://github.com/sqlcipher/sqlcipher" target="_blank" rel="noopener">sqlcipher</a>的加密部分的源码，后来想到AES还分不同类型，这样成功的几率不高呀，于是也作罢。</p><p>解铃还须系铃人，还是用sqlchipher来解密吧，安装和命令参照了<a href="https://luowei.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/sqlite-encrypt-with-sqlcipher.html" target="_blank" rel="noopener">这篇</a>和<a href="http://caiyao.name/2016/08/17/linux%E4%BD%BF%E7%94%A8sqlcipher%E8%A7%A3%E5%AF%86sqlite/" target="_blank" rel="noopener">这篇</a>，多谢分享。</p><h4 id="安装sqlcipher"><a href="#安装sqlcipher" class="headerlink" title="安装sqlcipher"></a>安装sqlcipher</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install sqlcipher</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">unzip -q sqlcipher-master.zip  </span><br><span class="line"><span class="built_in">cd</span> sqlcipher-master  </span><br><span class="line">sudo apt install openssl libssl-dev tcl tk sqlite3</span><br><span class="line">./configure --<span class="built_in">enable</span>-tempstore=yes CFLAGS=<span class="string">"-DSQLITE_HAS_CODEC"</span> LDFLAGS=<span class="string">"-lcrypto"</span></span><br><span class="line">make</span><br><span class="line">./sqlcipher</span><br></pre></td></tr></table></figure><h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><p>使用上一步得到的密钥，如key = ‘1234567’。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./sqlcipher EnMicroMsg.db</span><br><span class="line">sqlite&gt; PRAGMA key = <span class="string">'1234567'</span>;</span><br><span class="line">sqlite&gt; PRAGMA cipher_use_hmac = off;</span><br><span class="line">sqlite&gt; PRAGMA kdf_iter = 4000;</span><br><span class="line">sqlite&gt; ATTACH DATABASE <span class="string">'wechat.db'</span> AS wechat KEY <span class="string">''</span>;</span><br><span class="line">sqlite&gt; SELECT sqlcipher_export(<span class="string">'wechat'</span>);</span><br><span class="line">sqlite&gt; DETACH DATABASE wechat;</span><br></pre></td></tr></table></figure><p>或者一句话直接执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlcipher EnMicroMsg.db <span class="string">'PRAGMA key = "1234567"; PRAGMA cipher_use_hmac = off; PRAGMA kdf_iter = 4000; ATTACH DATABASE "wechat.db" AS wechat KEY "";SELECT sqlcipher_export("wechat");DETACH DATABASE wechat;'</span></span><br></pre></td></tr></table></figure><p> 即可得到普通未加密的wechat.db。<br>其中<code>PRAGMA cipher_use_hmac = off; PRAGMA kdf_iter = 4000;</code>可用<code>PRAGMA cipher_migrate;</code>代替。使用后者，会改变原文件，如<code>sqlcipher EnMicroMsg.db &#39;PRAGMA key = &quot;1234567&quot;; PRAGMA cipher_migrate; &#39;</code>，执行完后可使用<code>DB Browser for SQLite</code>输入密钥打开，然后菜单栏-&gt;文件-&gt;设置加密，密码为空即可清除密码。</p><h3 id="了解数据库结构"><a href="#了解数据库结构" class="headerlink" title="了解数据库结构"></a>了解数据库结构</h3><p>使用Browser打开数据库文件，大致浏览了一下表结构和数据，这里主要使用三个表：</p><ol><li>rcontact，通讯录表</li><li>chatroom，群聊表</li><li>message，聊天记录表</li></ol><p>message中每条记录即为一条聊天消息，包含着聊天对象<code>talker</code>，如果为群聊，message.talker=chatroom.chatroomname，message.content中存储形式为：”群成员wxid:\n内容”。</p><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>编码过程比较容易，统计聊天记录会按照正则表达式匹配，这里要求群成员，饭费消息为单独一个数值。</p><p>具体代码见</p><blockquote><p><a href="https://github.com/zz-zigzag/wechat-db-parser" target="_blank" rel="noopener">https://github.com/zz-zigzag/wechat-db-parser</a></p></blockquote><p>由于程序较小，为实现方便舍弃了一些编码规则，比如函数的可重入性等，这里仅供参考。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用微信聊天记录统计信息&quot;&gt;&lt;a href=&quot;#使用微信聊天记录统计信息&quot; class=&quot;headerlink&quot; title=&quot;使用微信聊天记录统计信息&quot;&gt;&lt;/a&gt;使用微信聊天记录统计信息&lt;/h1&gt;&lt;h2 id=&quot;需求&quot;&gt;&lt;a href=&quot;#需求&quot; class=&quot;headerlink&quot; title=&quot;需求&quot;&gt;&lt;/a&gt;需求&lt;/h2&gt;&lt;p&gt;在公司食堂吃饭，由于每张饭卡每月需要缴纳150管理费，所以大家为了省钱几个或十几人共用一张饭卡，以此省钱。多人公用饭卡，这就涉及到一个记账的问题。充值需要记录，每人花费多少也要记录。&lt;/p&gt;
+&lt;p&gt;一种方案是，设计信息系统，大家吃完后自行记录，B/S或APP或文件，但多少有些不方便，容易忘记，造成坏账众多。后来找到简便易行之法——利用微信群，大家吃完后发送数字即可，除了记账，大家还可以互相监督，减少坏账。期间也想过微信公众号，类似桌游助手那种思路，或者小程序肯定也可以。但开发工作量较大，所有就一直用微信群做了。&lt;/p&gt;
+&lt;p&gt;但微信群统计有一个缺点，月末统计每人的花费比较麻烦。目前只能是，聊天记录按人筛选，然后手工输入到excel统计。这显然太麻烦了，一定要想个办法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="database" scheme="https://notes.zz-zigzag.com/tags/database/"/>
+    
+      <category term="WeChat" scheme="https://notes.zz-zigzag.com/tags/WeChat/"/>
+    
+      <category term="SQLite" scheme="https://notes.zz-zigzag.com/tags/SQLite/"/>
+    
+      <category term="APP" scheme="https://notes.zz-zigzag.com/tags/APP/"/>
+    
+      <category term="widget" scheme="https://notes.zz-zigzag.com/tags/widget/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH高级用法</title>
+    <link href="https://notes.zz-zigzag.com/2017/08/ssh-advanced-usage.html"/>
+    <id>https://notes.zz-zigzag.com/2017/08/ssh-advanced-usage.html</id>
+    <published>2017-08-03T04:47:42.000Z</published>
+    <updated>2017-09-23T16:12:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SSH高级用法"><a href="#SSH高级用法" class="headerlink" title="SSH高级用法"></a>SSH高级用法</h1><p>之前介绍过<a href="/2016/04/SSH-simple-manual.html">SSH入门使用</a>，现总结一些高级用法，主要包括以下三部分：反向代理、正向代理、代理上网。</p><a id="more"></a><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>以上三个使用功能分别使用SSH的<code>-R -L -D</code>功能</p><h3 id="SSH代理功能常用的几个参数"><a href="#SSH代理功能常用的几个参数" class="headerlink" title="SSH代理功能常用的几个参数"></a>SSH代理功能常用的几个参数</h3><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-C 压缩所有数据</span></span><br><span class="line"><span class="deletion">-q 静默模式</span></span><br><span class="line"><span class="deletion">-T 不占用shell</span></span><br><span class="line"><span class="deletion">-f 后台执行</span></span><br><span class="line"><span class="deletion">-n 重定向stdin到/dev/null (-f用时推荐)</span></span><br><span class="line"><span class="deletion">-N 不执行远程指令</span></span><br></pre></td></tr></table></figure><p>如果登录出现异常，可使用<code>-vvv</code>显示调试信息。</p><h3 id="服务端设置"><a href="#服务端设置" class="headerlink" title="服务端设置"></a>服务端设置</h3><p>编辑<code>/etc/ssh/sshd_config</code></p><ul><li><code>GatewayPorts yes</code>可以在反向代理时服务端监听所有IP<code>0.0.0.0</code>而不是只有本机<code>127.0.0.1</code>。</li><li><code>ClientAliveInterval 60</code>每60秒给客户端发送心跳，<code>ClientAliveCountMax 3</code>超过三次不响应则关闭连接。</li><li>确保<code>GSSAPIAuthentication no</code>GSS认证方式关闭和<code>UseDNS no</code>DNS反向查询关闭，此设置可提高SSH登录的响应速度，确保<code>PasswordAuthentication yes</code>密码认证打开（通常默认公钥认证也为打开）。</li></ul><h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>ssh client能访问到的所有服务（包括局域网和本机），通过ssh连接映射到ssh server的端口上去。示例</p><ul><li><code>ssh -CqTfnN -R 80:localhost:80 user@ssh_server</code> 将本机的80端口映射到服务端80端口</li><li><code>ssh -CqTfnN -R 8080:192.168.1.190:80 user@ssh_server</code> 将本局域网192.168.1.190的80端口映射到服务端8080端口</li></ul><p>如果ssh server在公网，可内网的服务映射到公网上去。<br>如将本机的远程桌面端口3389反向代理到公网，将内网HPC的SSH端口22代理到公网。</p><h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>将ssh server能访问到的服务（包括局域网和本机），映射到ssh client的端口。<br>示例 <code>ssh -CqTfnN -L 5901:vnc_server:5901 user@ssh_server</code> 将局域网vnc_server的5901端口映射为本机的5901端口，由于vnc服务通常未加密，使用ssh也可加强通讯安全。需要注意此时去<code>netstat</code>中查看，会发现本机存在<code>127.0.0.1:5901</code>的监听，并不是<code>0.0.0.0:5901</code>，这意味着只能本机访问。如果其他机器也需访问本地转发要使用<code>GatewayPorts</code>关键字，增加<code>-g</code>参数即可。</p><h2 id="代理上网"><a href="#代理上网" class="headerlink" title="代理上网"></a>代理上网</h2><p>常见的SSH代理上网，使用方法：<code>ssh -CqTfnN -D 1080 user@ssh_server</code>，本机开放1080端口，可以在Internet选项中设置代理服务器地址为<code>127.0.0.1:1080</code>即可，或使用Chrome的<code>SwitchyOmega</code>插件配置根据网址决定是否使用代理。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>只要ssh server端或client端能访问的服务均可通过ssh端口代理被双方网络中的终端访问，而且所有连接均为加密。要注意的是，需长期保持连接来维持转发功能，一旦网络不稳定则掉线，所以必要时可配置守护进程，如果用于代理上网，这也是相比于shadowsocks的劣势。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;SSH高级用法&quot;&gt;&lt;a href=&quot;#SSH高级用法&quot; class=&quot;headerlink&quot; title=&quot;SSH高级用法&quot;&gt;&lt;/a&gt;SSH高级用法&lt;/h1&gt;&lt;p&gt;之前介绍过&lt;a href=&quot;/2016/04/SSH-simple-manual.html&quot;&gt;SSH入门使用&lt;/a&gt;，现总结一些高级用法，主要包括以下三部分：反向代理、正向代理、代理上网。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="SSH" scheme="https://notes.zz-zigzag.com/tags/SSH/"/>
+    
+      <category term="break" scheme="https://notes.zz-zigzag.com/tags/break/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redmine和Hmailserver安装配置</title>
+    <link href="https://notes.zz-zigzag.com/2017/07/Bitnami-Redmine-and-Hmailserver.html"/>
+    <id>https://notes.zz-zigzag.com/2017/07/Bitnami-Redmine-and-Hmailserver.html</id>
+    <published>2017-07-04T01:47:23.000Z</published>
+    <updated>2018-03-22T11:39:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Redmine和Hmailserver安装配置"><a href="#Redmine和Hmailserver安装配置" class="headerlink" title="Redmine和Hmailserver安装配置"></a>Redmine和Hmailserver安装配置</h1><p>部署环境：windows server 2016</p><h2 id="Redmine"><a href="#Redmine" class="headerlink" title="Redmine"></a>Redmine</h2><p><a href="https://bitnami.com/stack/redmine" target="_blank" rel="noopener">Redmine</a>是一个项目管理工具，可下载带敏捷插件的版本<a href="https://bitnami.com/stack/redmine-plus-agile" target="_blank" rel="noopener">Redmine+Agile</a>，可以下载<code>Installer</code>或<code>Virtual Machines</code>，也可以在浏览器中查看DEMO。</p><a id="more"></a><p><img src="/images/redmine.png" alt=""><br>安装都很简单，期间会设置一个管理员账号和密码，此密码也为mysql中root的密码。windows版本的配置文件在<code>\apps\redmineplusagile\htdocs\config</code></p><h3 id="配置邮件服务"><a href="#配置邮件服务" class="headerlink" title="配置邮件服务"></a>配置邮件服务</h3><p>基本不用过多的配置，这里只是配置了邮箱，打开<code>configuration.yml</code>，邮箱配置如下：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">email_delivery:</span></span><br><span class="line">  <span class="attr">delivery_method:</span> <span class="string">:async_smtp</span></span><br><span class="line">  <span class="attr">async_smtp_settings:</span></span><br><span class="line">    <span class="attr">address:</span> <span class="number">192.168</span><span class="number">.99</span><span class="number">.190</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">25</span></span><br><span class="line">    <span class="attr">domain:</span> <span class="string">puhua.com</span></span><br><span class="line">    <span class="attr">authentication:</span> <span class="string">:login</span></span><br><span class="line">    <span class="attr">user_name:</span> <span class="string">redmine@puhua.com</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">redmine</span></span><br></pre></td></tr></table></figure><h2 id="Hmailserver"><a href="#Hmailserver" class="headerlink" title="Hmailserver"></a><a href="https://www.hmailserver.com/" target="_blank" rel="noopener">Hmailserver</a></h2><p>Windows环境下的邮箱服务器，软件非常小，需要<code>.net framework 3.5</code>的支持。由于面的步骤安装了mysql，这里也顺便使用mysql做数据库。添加账号也很简单，然后在foxmail中配置客户端设置stmp/imap地址即可收发地址。如图配置了<code>zhangxiaodong@puhua.com</code><br><img src="/images/stmp_imap.jpg" alt=""></p><p>需要注意，其他邮箱如qq，发送此邮箱名称是不能收到的，因为没有配置<code>puhua.com</code>的MX记录，qq邮箱服务器找不到@puhua.com的邮箱服务器</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Redmine和Hmailserver安装配置&quot;&gt;&lt;a href=&quot;#Redmine和Hmailserver安装配置&quot; class=&quot;headerlink&quot; title=&quot;Redmine和Hmailserver安装配置&quot;&gt;&lt;/a&gt;Redmine和Hmailserver安装配置&lt;/h1&gt;&lt;p&gt;部署环境：windows server 2016&lt;/p&gt;
+&lt;h2 id=&quot;Redmine&quot;&gt;&lt;a href=&quot;#Redmine&quot; class=&quot;headerlink&quot; title=&quot;Redmine&quot;&gt;&lt;/a&gt;Redmine&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://bitnami.com/stack/redmine&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Redmine&lt;/a&gt;是一个项目管理工具，可下载带敏捷插件的版本&lt;a href=&quot;https://bitnami.com/stack/redmine-plus-agile&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Redmine+Agile&lt;/a&gt;，可以下载&lt;code&gt;Installer&lt;/code&gt;或&lt;code&gt;Virtual Machines&lt;/code&gt;，也可以在浏览器中查看DEMO。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="mail" scheme="https://notes.zz-zigzag.com/tags/mail/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用apache配置代理服务</title>
+    <link href="https://notes.zz-zigzag.com/2017/05/apache-for-proxy.html"/>
+    <id>https://notes.zz-zigzag.com/2017/05/apache-for-proxy.html</id>
+    <published>2017-05-04T01:36:56.000Z</published>
+    <updated>2017-07-04T04:44:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用apache配置代理服务"><a href="#使用apache配置代理服务" class="headerlink" title="使用apache配置代理服务"></a>使用apache配置代理服务</h1><p><a href="http://httpd.apache.org/docs/current/platform/windows.html" target="_blank" rel="noopener">官网</a>只提供源码，但是官网给出了<a href="http://www.apachehaus.com/cgi-bin/download.plx" target="_blank" rel="noopener">网址可以下载二进制文件</a></p><p>修改配置文件<code>httpd.conf</code>打开如下模块</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LoadModule access_compat_module modules&#x2F;mod_access_compat.so</span><br><span class="line">LoadModule proxy_module modules&#x2F;mod_proxy.so</span><br><span class="line">LoadModule proxy_connect_module modules&#x2F;mod_proxy_connect.so</span><br><span class="line">LoadModule proxy_http_module modules&#x2F;mod_proxy_http.so</span><br><span class="line">LoadModule proxy_ftp_module modules&#x2F;mod_proxy_ftp.so</span><br></pre></td></tr></table></figure><p>修改端口及黑名单白名单</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Listen 8089</span><br><span class="line">ProxyRequests   On</span><br><span class="line">&lt;Proxy *&gt;</span><br><span class="line">    Order allow,deny</span><br><span class="line">    Allow from all</span><br><span class="line">#    Deny from 127.0.0.1</span><br><span class="line">&lt;&#x2F;Proxy&gt;</span><br></pre></td></tr></table></figure><p>此时可启动<code>httpd.exe</code>，完毕，可使用自带Internet代理或SwitchOmega测试。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;使用apache配置代理服务&quot;&gt;&lt;a href=&quot;#使用apache配置代理服务&quot; class=&quot;headerlink&quot; title=&quot;使用apache配置代理服务&quot;&gt;&lt;/a&gt;使用apache配置代理服务&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://httpd.
+      
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="proxy" scheme="https://notes.zz-zigzag.com/tags/proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>获取CA证书，并安装SSL到Tomcat</title>
+    <link href="https://notes.zz-zigzag.com/2017/04/Get-CA-Install-SSL-certificate-to-Tomcat.html"/>
+    <id>https://notes.zz-zigzag.com/2017/04/Get-CA-Install-SSL-certificate-to-Tomcat.html</id>
+    <published>2017-04-27T11:43:07.000Z</published>
+    <updated>2017-05-05T10:52:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="获取CA证书，并且手动安装SSL到Tomcat上"><a href="#获取CA证书，并且手动安装SSL到Tomcat上" class="headerlink" title="获取CA证书，并且手动安装SSL到Tomcat上"></a>获取CA证书，并且手动安装SSL到Tomcat上</h1><h2 id="申请CA证书"><a href="#申请CA证书" class="headerlink" title="申请CA证书"></a>申请CA证书</h2><p>在<a href="https://www.freehao123.com" target="_blank" rel="noopener">免费资源部落</a>中搜索SSL或者证书字样，会得到好多文章。</p><blockquote><p><a href="https://www.freehao123.com/gogetssl-comodo-ssl-rapidssl/" target="_blank" rel="noopener">https://www.freehao123.com/gogetssl-comodo-ssl-rapidssl/</a><br><a href="https://www.freehao123.com/free-ssl-paihang/" target="_blank" rel="noopener">https://www.freehao123.com/free-ssl-paihang/</a></p></blockquote><p>阿里云也已经提供了<a href="https://common-buy.aliyun.com/?commodityCode=cas#/buy" target="_blank" rel="noopener">免费的证书服务</a>。不过我没有申请下来，本以为几分钟搞定，但是过了一天还没有，可能是哪里没弄好吧。<a href="https://www.qcloud.com/product/ssl" target="_blank" rel="noopener">腾讯云</a>也有类似的服务，几分钟就申请下来了，为期一年的。</p><a id="more"></a><p>后来找到<a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a>，是免费中最有名的了。它官网中提供了脚本工具<a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>来适配各种系统的各种web server。一些有名的应用，如WordPress面板中也集成了自动申请及续期服务（证书默认3个月期限，需要续期），国产<a href="https://www.upyun.com/" target="_blank" rel="noopener">又拍云</a>也支持自动申请及续期。我没有用VPS，这次只是为了测试证书，想便捷的拿到证书文件，所以直接在本地配置Tomcat。</p><p>使用了<a href="https://www.sslforfree.com/" target="_blank" rel="noopener">SSL For Free</a>拿到<a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a>颁发的证书，<a href="https://gethttpsforfree.com/" target="_blank" rel="noopener">https://gethttpsforfree.com/</a> 也是类似的服务。</p><p>步骤很简单，只需要验证一下域名的所有权即可。我在域名解析中加了TXT记录，得到证书文件，包括三个文件: <code>private.key certificate.crt ca_bundle.crt</code>。此证书有效域名为<code>xiaodong.site</code>和<code>www.xiaodong.site</code>。</p><h2 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h2><h3 id="添加域名到Tomcat"><a href="#添加域名到Tomcat" class="headerlink" title="添加域名到Tomcat"></a>添加域名到Tomcat</h3><p>首先添加域名，编辑配置文件<code>server.xml</code></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"www.xiaodong.site"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span></span></span><br><span class="line"><span class="tag"><span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">""</span> <span class="attr">docBase</span>=<span class="string">"D:\public"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>顺便把8080改为80，把<code>www.xiaodong.site</code>添加A记录到本机。如果是家庭局域网，可把A记录指向自己公网IP，然后可在路由配置虚拟服务器端口转发到本机。如果没权限配也没关系，这里只是测试一下。</p><p>现在，本地访问<code>www.xiaodong.site</code>可以打开网站了。如下图：<img src="/images/http.jpg" alt=""></p><h3 id="配置Tomcat-SSL"><a href="#配置Tomcat-SSL" class="headerlink" title="配置Tomcat SSL"></a>配置Tomcat SSL</h3><p>这里顺便介绍下，如果不是CA颁发的证书，怎样给Tomcat开启SSL。</p><p>首先本地生成一个证书，用到了JDK的keytool。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成.keystore文件</span></span><br><span class="line">keytool -genkey -<span class="built_in">alias</span> tomcat -keyalg RSA -keypass 111111 -storepass 111111 -keystore test.keystore</span><br><span class="line"><span class="comment"># 根据.keystore文件导出cer证书，Tomcat只需.keystore文件。</span></span><br><span class="line">keytool -<span class="built_in">export</span> -trustcacerts -<span class="built_in">alias</span> tomcat -file server.cer -keystore test.keystore -storepass 111111</span><br></pre></td></tr></table></figure><p>然后编辑配置文件<code>server.xml</code>，把SSL打开，证书指向刚才生成的文件，密码为上一步配置的密码。顺便把8443全改为https默认的443，</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8443"</span> <span class="attr">protocol</span>=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">maxThreads</span>=<span class="string">"150"</span> <span class="attr">SSLEnabled</span>=<span class="string">"true"</span> <span class="attr">scheme</span>=<span class="string">"https"</span> <span class="attr">secure</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">clientAuth</span>=<span class="string">"false"</span> <span class="attr">sslProtocol</span>=<span class="string">"TLS"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">keystoreFile</span>=<span class="string">"D:\tomcat_center\tomcat-test\keystore\test.keystore"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">keystorePass</span>=<span class="string">"111111"</span>  /&gt;</span></span><br></pre></td></tr></table></figure><p>此时重启Tomcat，访问页面如图：<br><img src="/images/https_notsafe.jpg" alt=""></p><p>接下来使用刚刚申请的CA证书，来制作配置Tomcat，需要使用到openssl工具。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -out certificate.pfx -inkey private.key -<span class="keyword">in</span> certificate.crt -certfile ca_bundle.crt</span><br><span class="line">keytool -importkeystore -srckeystore certificate.pfx -srcstorepass 111111 -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype jks -deststorepass 111111</span><br></pre></td></tr></table></figure><p>把配置文件改了，刚才的test.keystore替换为keystore.jks。重启Tomcat，访问页面如图：<br><img src="/images/https_safe.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;获取CA证书，并且手动安装SSL到Tomcat上&quot;&gt;&lt;a href=&quot;#获取CA证书，并且手动安装SSL到Tomcat上&quot; class=&quot;headerlink&quot; title=&quot;获取CA证书，并且手动安装SSL到Tomcat上&quot;&gt;&lt;/a&gt;获取CA证书，并且手动安装SSL到Tomcat上&lt;/h1&gt;&lt;h2 id=&quot;申请CA证书&quot;&gt;&lt;a href=&quot;#申请CA证书&quot; class=&quot;headerlink&quot; title=&quot;申请CA证书&quot;&gt;&lt;/a&gt;申请CA证书&lt;/h2&gt;&lt;p&gt;在&lt;a href=&quot;https://www.freehao123.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;免费资源部落&lt;/a&gt;中搜索SSL或者证书字样，会得到好多文章。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.freehao123.com/gogetssl-comodo-ssl-rapidssl/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.freehao123.com/gogetssl-comodo-ssl-rapidssl/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.freehao123.com/free-ssl-paihang/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.freehao123.com/free-ssl-paihang/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;阿里云也已经提供了&lt;a href=&quot;https://common-buy.aliyun.com/?commodityCode=cas#/buy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;免费的证书服务&lt;/a&gt;。不过我没有申请下来，本以为几分钟搞定，但是过了一天还没有，可能是哪里没弄好吧。&lt;a href=&quot;https://www.qcloud.com/product/ssl&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;腾讯云&lt;/a&gt;也有类似的服务，几分钟就申请下来了，为期一年的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="HTTPS" scheme="https://notes.zz-zigzag.com/tags/HTTPS/"/>
+    
+      <category term="CA" scheme="https://notes.zz-zigzag.com/tags/CA/"/>
+    
+      <category term="SSL" scheme="https://notes.zz-zigzag.com/tags/SSL/"/>
+    
+      <category term="Tomcat" scheme="https://notes.zz-zigzag.com/tags/Tomcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VNC远程连接Linux</title>
+    <link href="https://notes.zz-zigzag.com/2017/04/Note-of-VNC-server.html"/>
+    <id>https://notes.zz-zigzag.com/2017/04/Note-of-VNC-server.html</id>
+    <published>2017-04-24T11:37:46.000Z</published>
+    <updated>2017-08-03T07:13:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="VNC远程连接Linux"><a href="#VNC远程连接Linux" class="headerlink" title="VNC远程连接Linux"></a>VNC远程连接Linux</h1><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>首先确保Linux服务器上具备桌面环境，可以是Xfce、KDE或者Gnome等都可以。此外还需要服务器上装有VNC server。可使用<code>rpm -qa | grep vnc</code>或<code>dpkg -l | grep vnc</code>检验。如果没有可以<code>yum -y install tigervnc-server</code>安装。本次使用环境为Redhat 5.5 &amp; Gnome。 需要注意的是，VNC协议的数据是明文传输的，存在密码泄露的风险，不过可以使用<code>SSH -L</code>进行端口转发。参照<a href="/2017/08/ssh-advanced-usage.html">SSH高级用法</a></p><a id="more"></a><h2 id="配置Server"><a href="#配置Server" class="headerlink" title="配置Server"></a>配置Server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当前用户第一次创建服务，会在HOME目录下创建`.vnc`目录存放配置，会提示输入访问密码。</span></span><br><span class="line"><span class="comment"># 接下来再输入，会一次创建第2个，第3个等。两个用户的:1是不可以同时启动的，会提示端口和进程冲突。</span></span><br><span class="line">vncserver</span><br><span class="line"><span class="comment"># 启动之后，会生成~/.vnc目录，密码存储在passwd文件中，启动脚本为xstartup.</span></span><br><span class="line"><span class="comment"># 打开其中的注释`exec /etc/X12/xinit/xinitrc`，重启服务后，下次远程访问会进入到桌面。</span></span><br><span class="line"><span class="comment"># 启动配置1</span></span><br><span class="line">vncserver :1</span><br><span class="line"><span class="comment"># 关闭配置1</span></span><br><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br><span class="line"><span class="comment"># 修改密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="comment"># 设置vncserver开机启动</span></span><br><span class="line">chkconfig vncserver on</span><br></pre></td></tr></table></figure><p>编辑配置文件如下。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/sysconfig/vncservers</span></span><br><span class="line">VNCSERVERS=<span class="string">"1:root 2:weblogic"</span></span><br><span class="line">VNCSERVERARGS[1]=<span class="string">"-geometry 800x600"</span></span><br><span class="line">VNCSERVERARGS[2]=<span class="string">"-geometry 800x600 -alwaysshared"</span></span><br><span class="line"><span class="comment"># -alwaysshared标识可以允许多终端登录，共享屏幕</span></span><br></pre></td></tr></table></figure><p>/etc/init.d/vncserver start启动，会一次启动root用户下的配置1和weblogic用户下的配置2</p><h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><p>使用<a href="https://www.realvnc.com/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a>，远程连接目标主机。地址可以为<code>IP:1</code>或<code>IP:5901</code>两种形式，示例如下： ![](/images/VNC Viewer.jpg)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;VNC远程连接Linux&quot;&gt;&lt;a href=&quot;#VNC远程连接Linux&quot; class=&quot;headerlink&quot; title=&quot;VNC远程连接Linux&quot;&gt;&lt;/a&gt;VNC远程连接Linux&lt;/h1&gt;&lt;h2 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h2&gt;&lt;p&gt;首先确保Linux服务器上具备桌面环境，可以是Xfce、KDE或者Gnome等都可以。此外还需要服务器上装有VNC server。可使用&lt;code&gt;rpm -qa | grep vnc&lt;/code&gt;或&lt;code&gt;dpkg -l | grep vnc&lt;/code&gt;检验。如果没有可以&lt;code&gt;yum -y install tigervnc-server&lt;/code&gt;安装。本次使用环境为Redhat 5.5 &amp;amp; Gnome。 需要注意的是，VNC协议的数据是明文传输的，存在密码泄露的风险，不过可以使用&lt;code&gt;SSH -L&lt;/code&gt;进行端口转发。参照&lt;a href=&quot;/2017/08/ssh-advanced-usage.html&quot;&gt;SSH高级用法&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Linux" scheme="https://notes.zz-zigzag.com/tags/Linux/"/>
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="VNC" scheme="https://notes.zz-zigzag.com/tags/VNC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle数据库常用工具及常见问题</title>
+    <link href="https://notes.zz-zigzag.com/2017/02/Oracle-database-commonly-used.html"/>
+    <id>https://notes.zz-zigzag.com/2017/02/Oracle-database-commonly-used.html</id>
+    <published>2017-02-09T09:23:07.000Z</published>
+    <updated>2017-02-10T12:13:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Oracle数据库常用工具及常见问题"><a href="#Oracle数据库常用工具及常见问题" class="headerlink" title="Oracle数据库常用工具及常见问题"></a>Oracle数据库常用工具及常见问题</h1><p>这里总结记录我对于Oracle数据库的一些新知的东西。</p><a id="more"></a><h2 id="常用自带工具及维护命令"><a href="#常用自带工具及维护命令" class="headerlink" title="常用自带工具及维护命令"></a>常用自带工具及维护命令</h2><ul><li>sqlplus<ul><li>终端界面与数据库交互的工具，可执行sqlplus命令和sql语句。<code>startup</code>: 启动数据库，<code>shutdown immediate</code>：停止数据库。</li><li>本地登录数据库管理员，通过系统层面用户验证：<code>sqlplus / as sysdba</code></li></ul></li><li>dbca: 数据库实例管理工具，功能有创建、配置、删除数据库实例等。</li><li>lsnrctl: 监听控制 <code>[start|stop|status|reload]</code></li><li>exp: 数据库导出，如 <code>exp user/password file=$HOME/backup.dmp</code></li><li>imp: 数据库导入，如 <code>imp user/password file=$HOME/backup.dmp full=y</code></li><li>netca: 配置监听服务，默认1521</li><li>emctl: em console管理    [TBD Detail]</li><li>emca:    </li></ul><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol><li>进入sqlplus之后，不能使用上下键以及退格键。<br>首先在Linux上安装<a href="https://github.com/hanslub42/rlwrap" target="_blank" rel="noopener">rlwrap</a>，这个程序本身是个Shell。然后，在<code>.bashrc</code>文件中添加别名命令，<code>alias sqlplus=&quot;rlwrap sqlplus&quot;</code>和<code>alias rman=&quot;rlwrap rman&quot;</code>。</li></ol><hr><p>持续更新……</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Oracle数据库常用工具及常见问题&quot;&gt;&lt;a href=&quot;#Oracle数据库常用工具及常见问题&quot; class=&quot;headerlink&quot; title=&quot;Oracle数据库常用工具及常见问题&quot;&gt;&lt;/a&gt;Oracle数据库常用工具及常见问题&lt;/h1&gt;&lt;p&gt;这里总结记录我对于Oracle数据库的一些新知的东西。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="database" scheme="https://notes.zz-zigzag.com/tags/database/"/>
+    
+      <category term="Oracle" scheme="https://notes.zz-zigzag.com/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PLSQL Developer安装配置</title>
+    <link href="https://notes.zz-zigzag.com/2017/01/PLSQL-Developer-setting.html"/>
+    <id>https://notes.zz-zigzag.com/2017/01/PLSQL-Developer-setting.html</id>
+    <published>2017-01-23T10:28:16.000Z</published>
+    <updated>2017-07-04T03:36:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PL-SQL-Developer安装配置"><a href="#PL-SQL-Developer安装配置" class="headerlink" title="PL/SQL Developer安装配置"></a>PL/SQL Developer安装配置</h1><h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>需Oracle 11g已安装在服务器，前些天写过<a href="/2017/01/Install-oracle-11g-on-Centos7.html">CentOS 7.2 远程安装 Oracle 11g</a>。</p><ul><li><a href="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html" target="_blank" rel="noopener">Oracle客户端下载</a>: instantclient-basic-win-x86-64-11.2.0.1.0.zip</li><li><a href="https://www.allroundautomations.com/plsqldev.html" target="_blank" rel="noopener">PLSQL Developer</a> (同时根据需要下载对应的语言包): plsqldev1200x64.msi</li></ul><a id="more"></a><h2 id="安装及配置"><a href="#安装及配置" class="headerlink" title="安装及配置"></a>安装及配置</h2><ol><li>安装PLSQL: <code>plsqldev1200x64.msi</code></li><li>安装中文包:<code>chinese.exe</code>。</li></ol><h2 id="Oracle客户端"><a href="#Oracle客户端" class="headerlink" title="Oracle客户端"></a>Oracle客户端</h2><p>将<code>instantclient_11_2</code>，解压至一目录下。然后配置Oralce连接。打开PLSQL，配置首选项-&gt;Oracle-&gt;连接，Oracle主目录和OCI库分别设置，举例如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\PLSQL Developer 12\instantclient_11_2</span><br><span class="line">D:\PLSQL Developer 12\instantclient_11_2\oci.dll</span><br></pre></td></tr></table></figure><p>配置数据库连接有两种方式，一种是直接在登录页面指定，如<code>192.168.1.100:1521/abc</code>。<br>另一种方式是使用<code>tnsnames.ora</code>，创建<code>instantclient_11_2\network\admin\tnsnames.ora</code>文件。<code>tnsnames.ora</code>内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">本地实例名1 &#x3D;</span><br><span class="line">(DESCRIPTION &#x3D;</span><br><span class="line">  (ADDRESS_LIST &#x3D;</span><br><span class="line">    (ADDRESS &#x3D; (PROTOCOL &#x3D; TCP)(HOST &#x3D; 远程数据库IP)(PORT &#x3D; 端口号))</span><br><span class="line">  )</span><br><span class="line">  (CONNECT_DATA &#x3D;</span><br><span class="line">    (SERVICE_NAME &#x3D; 远程数据库实例名)</span><br><span class="line">  )</span><br><span class="line">)</span><br><span class="line">本地实例名2 &#x3D;</span><br><span class="line">(DESCRIPTION &#x3D;</span><br><span class="line">  (ADDRESS_LIST &#x3D;</span><br><span class="line">    (ADDRESS &#x3D; (PROTOCOL &#x3D; TCP)(HOST &#x3D; 远程数据库IP)(PORT &#x3D; 端口号))</span><br><span class="line">  )</span><br><span class="line">  (CONNECT_DATA &#x3D;</span><br><span class="line">    (SERVICE_NAME &#x3D; 远程数据库实例名)</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>其中MY_LAB为本地实例名，lab为远程数据库实例名。</p><h2 id="PLSQL-Developer"><a href="#PLSQL-Developer" class="headerlink" title="PLSQL Developer"></a>PLSQL Developer</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>首选项-&gt;用户界面-&gt;字体，可设置浏览器，表格，编辑器的字体。我个人把前两设置为雅黑，编辑器为Consolas，均放大了一些字号。</p><h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><p>通常情况下，客户端PLSQL需要和服务端数据库的编码方式一致，否则可能会导致中文显示或编辑异常。<br>连接成功后，执行<code>select userenv(&#39;language&#39;) from dual;</code>可查看服务端字符集，比如为<code>AMERICAN_AMERICA.AL32UTF8</code>。在本地设置环境变量<code>NLS_LANG</code>也为<code>AMERICAN_AMERICA.AL32UTF8</code>即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;PL-SQL-Developer安装配置&quot;&gt;&lt;a href=&quot;#PL-SQL-Developer安装配置&quot; class=&quot;headerlink&quot; title=&quot;PL/SQL Developer安装配置&quot;&gt;&lt;/a&gt;PL/SQL Developer安装配置&lt;/h1&gt;&lt;h2 id=&quot;软件下载&quot;&gt;&lt;a href=&quot;#软件下载&quot; class=&quot;headerlink&quot; title=&quot;软件下载&quot;&gt;&lt;/a&gt;软件下载&lt;/h2&gt;&lt;p&gt;需Oracle 11g已安装在服务器，前些天写过&lt;a href=&quot;/2017/01/Install-oracle-11g-on-Centos7.html&quot;&gt;CentOS 7.2 远程安装 Oracle 11g&lt;/a&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Oracle客户端下载&lt;/a&gt;: instantclient-basic-win-x86-64-11.2.0.1.0.zip&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.allroundautomations.com/plsqldev.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PLSQL Developer&lt;/a&gt; (同时根据需要下载对应的语言包): plsqldev1200x64.msi&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="software" scheme="https://notes.zz-zigzag.com/tags/software/"/>
+    
+      <category term="database" scheme="https://notes.zz-zigzag.com/tags/database/"/>
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="Oracle" scheme="https://notes.zz-zigzag.com/tags/Oracle/"/>
+    
+      <category term="SQL" scheme="https://notes.zz-zigzag.com/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7.2 远程安装 Oracle 11g</title>
+    <link href="https://notes.zz-zigzag.com/2017/01/Install-oracle-11g-on-Centos7.html"/>
+    <id>https://notes.zz-zigzag.com/2017/01/Install-oracle-11g-on-Centos7.html</id>
+    <published>2017-01-20T09:28:16.000Z</published>
+    <updated>2017-09-26T03:41:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CentOS-7-2-远程安装-Oracle-11g-及常用操作"><a href="#CentOS-7-2-远程安装-Oracle-11g-及常用操作" class="headerlink" title="CentOS 7.2 远程安装 Oracle 11g 及常用操作"></a>CentOS 7.2 远程安装 Oracle 11g 及常用操作</h1><p>近期从零安装Oracle，网上查看了许多教程，包括网友总结的和<a href="https://docs.oracle.com/cd/E11882_01/install.112/e24326/toc.htm" target="_blank" rel="noopener">官方文档</a>，这里总结了一些必备的配置和常见错误处理，以便日后查看。</p><a id="more"></a><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="安装文件"><a href="#安装文件" class="headerlink" title="安装文件"></a>安装文件</h3><ul><li>OS:<ul><li><a href="https://www.centos.org/download/" target="_blank" rel="noopener">CentOS 7</a>，安装可参考: <a href="/2016/11/How-to-install-a-CentOS.html">CentOS系统安装配置</a> 和 <a href="/2016/11/Disk-partition-table-format.html">磁盘分区格式与系统引导方式</a></li></ul></li><li><a href="http://www.oracle.com/technetwork/cn/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">Oracle 11g</a>:<ul><li>linux.x64_11gR2_database_1of2.zip</li><li>linux.x64_11gR2_database_2of2.zip</li></ul></li></ul><h3 id="配置用户（以root登陆）"><a href="#配置用户（以root登陆）" class="headerlink" title="配置用户（以root登陆）"></a>配置用户（以root登陆）</h3><ul><li>添加用户组<ul><li>Oracle 清单组(一般为oinstall: <code>groupadd oinstall</code>)<br>Oracle 所有者，拥有Oracle中央清单（oraInventory）的写入权限。</li><li>数据库管理员(OSDBA，一般为dba: <code>groupadd dba</code>)<br>OSDBA组的成员通过操作系统身份验证，使用SQL以SYSDBA身份链接到ORACLE实例。该组成员可执行关键的数据库管理任务，如创建数据库、启动和关闭实例。SYSDBA 系统权限甚至在数据库未打开时也允许访问数据库实例。对此权限的控制完全超出了数据库本身的范围。不要混淆SYSDBA系统权限与数据库角色DBA。DBA角色不包括SYSDBA或SYSOPER系统权限。</li><li>数据库操作员(OSOPER，一般为oper: <code>groupadd oper</code>)<br>OSOPER组的成员，使用SQL以SYSOPER连接一个实例。这个成员拥有一组有限的数据库管理权限，如管理和运行备份。SYSOPER系统权限甚至也允许在未打开数据库的情况下访问实例。要使用该组，需选择Advanced安装类型来配置，否则可不建此用户组。</li></ul></li><li>添加用户<ul><li>新建：<code>useradd -g oinstall -G dba oracle</code></li><li>修改密码：<code>passwd oracle</code></li></ul></li></ul><h3 id="配置内核参数和资源限制"><a href="#配置内核参数和资源限制" class="headerlink" title="配置内核参数和资源限制"></a>配置内核参数和资源限制</h3><p>这一步可以省略，因为安装过程中Oracle会检测到这些配置不符合要求，会生成一个脚本，用root执行即可配置完毕。</p><ul><li><p>内核参数修改<code>/etc/sysctl.conf</code>。增加如下参数，并立即生效<code>sysctl -p</code></p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fs.aio-max-nr</span> = <span class="number">1048576</span></span><br><span class="line"><span class="attr">fs.file-max</span> = <span class="number">6815744</span></span><br><span class="line"><span class="attr">kernel.shmall</span> = <span class="number">2097152</span></span><br><span class="line"><span class="attr">kernel.shmmax</span> = <span class="number">536870912</span></span><br><span class="line"><span class="attr">kernel.shmmni</span> = <span class="number">4096</span></span><br><span class="line"><span class="attr">kernel.sem</span> = <span class="number">250</span> <span class="number">32000</span> <span class="number">100</span> <span class="number">128</span></span><br><span class="line"><span class="attr">net.ipv4.ip_local_port_range</span> = <span class="number">9000</span> <span class="number">65500</span></span><br><span class="line"><span class="attr">net.core.rmem_default</span> = <span class="number">262144</span></span><br><span class="line"><span class="attr">net.core.rmem_max</span> = <span class="number">4194304</span></span><br><span class="line"><span class="attr">net.core.wmem_default</span> = <span class="number">262144</span></span><br><span class="line"><span class="attr">net.core.wmem_max</span> = <span class="number">1048576</span></span><br></pre></td></tr></table></figure></li><li><p>资源限制修改<code>/etc/security/limits.conf</code>。增加如下参数，提高oracle用户的资源限制。分别是进程数、打开的文件数、堆栈、驻留内存上限。soft为软规则，超过限制警告，hard为硬规则，不允许超过。</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">oracle </span>soft nproc <span class="number">2047</span></span><br><span class="line"><span class="keyword">oracle </span>hard nproc <span class="number">16384</span></span><br><span class="line"><span class="keyword">oracle </span>soft nofile <span class="number">4096</span></span><br><span class="line"><span class="keyword">oracle </span>hard nofile <span class="number">65536</span></span><br><span class="line"><span class="keyword">oracle </span>soft stack unlimited</span><br><span class="line"><span class="keyword">oracle </span>hard stack unlimited</span><br><span class="line"><span class="keyword">oracle </span>soft memlock unlimited</span><br><span class="line"><span class="keyword">oracle </span>hard memlock unlimited</span><br></pre></td></tr></table></figure><h3 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h3><p>后续数据库安装时，会检测依赖包，此处可先行安装。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install binutils compat-libcap1  compat-libstdc++-33 compat-libstdc++-33*.i686 elfutils-libelf-devel gcc gcc-c++ glibc*.i686 glibc glibc-devel glibc-devel*.i686 ksh libgcc*.i686 libgcc libstdc++ libstdc++*.i686 libstdc++-devel libstdc++-devel*.i686 libaio libaio*.i686 libaio-devel libaio-devel*.i686 make sysstat unixODBC unixODBC*.i686 unixODBC-devel unixODBC-devel*.i686 libXp</span><br></pre></td></tr></table></figure></li></ul><h3 id="配置oracle用户环境变量"><a href="#配置oracle用户环境变量" class="headerlink" title="配置oracle用户环境变量"></a>配置oracle用户环境变量</h3><p>可修改<code>~/.bash_profile</code>或<code>~/.bashrc</code>(zsh为<code>~/.zshrc</code>)。前者在用户第一次登录时执行一次，后者在该用户每次终端启用时均执行。使用<code>source 文件名</code>可立即生效。添加如下内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">umask</span> 022<span class="comment"># 创建文件默认去除022权限，对应755</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=<span class="variable">$HOME</span>/app<span class="comment"># 安装路径</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_SID=lab<span class="comment"># ORACLE实例名</span></span><br><span class="line"><span class="built_in">export</span> TMP=/tmp</span><br></pre></td></tr></table></figure><h3 id="远程安装配置"><a href="#远程安装配置" class="headerlink" title="远程安装配置"></a>远程安装配置</h3><ul><li>远程安装时，需要SSH转发图形界面。检查<code>/etc/ssh/sshd_config</code>的配置<code>X11Forwarding yes</code>，并<code>service sshd restart</code>。</li><li>本地Windows可用Xmanager监听图形界面，远程服务器需有Xserver：<code>yum install xorg-x11-server-util xorg-x11-apps xorg-x11-xauth xterm</code>，可能还需要<code>xhost +</code>添加图形界面访问权限，运行<code>xclock</code>观察是否出现图形时钟进行测试。</li><li>如使用Xshell登录，则可在连接属性“隧道”中选择转发X11连接到Xmanager，此设置会自动配置oracle用户<code>DISPLAY</code>环境变量。若使用ssh命令连接，可手动添加如下环境变量。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xServer</span></span><br><span class="line"><span class="built_in">export</span> DISPLAY=192.168.0.1:0.0 <span class="comment"># IP为本地的IP，即，显示窗口的IP。</span></span><br><span class="line"><span class="built_in">export</span> LANG=c<span class="comment"># 设置语言为ASCII环境，如窗口显示乱码可加此环境变量。</span></span><br></pre></td></tr></table></figure></li><li>在运行<code>runInstaller</code>安装时可能需要手动打开Xmanager进行监听。</li></ul><h2 id="安装Oracle-database（以oracle用户登录）"><a href="#安装Oracle-database（以oracle用户登录）" class="headerlink" title="安装Oracle database（以oracle用户登录）"></a>安装Oracle database（以oracle用户登录）</h2><ol><li>把两个ZIP文件，并解压至同一文件夹，如<code>/opt/oracle/</code>。运行<code>runInstaller</code>可弹出图形窗口进行安装，根据需要选择安装选项。</li><li>安装时，installer会推荐默认的安装地址，如11g，通常为<code>$ORACLE_BASE/11g</code>，后续可添加如下环境变量将一系列oracle命令加到PATH中去。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/11g</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$ORACLE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></li><li>中途有一步是检查依赖包。即使进行了上述依赖包安装，还可能提示一些i386的包不存在，但CentOS的32bit包都是i686的，此处可忽略这些。</li><li>目前还有一个问题就是提示，内核参数<code>semmni</code>期望设置为128，但在<code>/etc/sysctl.conf</code>中添加<code>kernel.semmni = 128</code>中后，<code>sysctl -p</code>提示找不到semmni文件，所以目前也忽略了此错误，未加<code>semmni</code>。</li></ol><h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>后续滚动条阶段时，遇到了两个编译错误，查看日志得到详细信息。</p><h4 id="ins-ctx-mk-报错-undefined-reference-to-memcpy-GLIBC-2-14"><a href="#ins-ctx-mk-报错-undefined-reference-to-memcpy-GLIBC-2-14" class="headerlink" title="ins_ctx.mk 报错 undefined reference to memcpy@GLIBC_2.14"></a>ins_ctx.mk 报错 undefined reference to <a href="mailto:memcpy@GLIBC_2.14">memcpy@GLIBC_2.14</a></h4><p>首先查看/usr/lib64/libc.a文件是否存在，如不存在可<code>yum install glibc-static</code>下载。然后修改出错的makefile文件（<code>$ORACLE_HOME/ctx/lib/ins_ctx.mk</code>），在<code>$(LINK_CTXHX) $(CTXHXOBJ) $(INSO_LINK)</code>前面添加<code>-static /usr/lib64/libc.a</code>，即采用静态链接，可解决此错误，点击retry通过。</p><h4 id="ins-emagent-mk-报错-Error-in-invoking-target-‘agent-nmhs’"><a href="#ins-emagent-mk-报错-Error-in-invoking-target-‘agent-nmhs’" class="headerlink" title="ins_emagent.mk 报错 Error in invoking target ‘agent nmhs’"></a>ins_emagent.mk 报错 Error in invoking target ‘agent nmhs’</h4><p>修改出错的makefile文件，在<code>$(MK_EMAGENT_NMECTL)</code>之后加上<code>-lnnz11</code>链接libnnz11.so库，点击retry即可通过。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CentOS-7-2-远程安装-Oracle-11g-及常用操作&quot;&gt;&lt;a href=&quot;#CentOS-7-2-远程安装-Oracle-11g-及常用操作&quot; class=&quot;headerlink&quot; title=&quot;CentOS 7.2 远程安装 Oracle 11g 及常用操作&quot;&gt;&lt;/a&gt;CentOS 7.2 远程安装 Oracle 11g 及常用操作&lt;/h1&gt;&lt;p&gt;近期从零安装Oracle，网上查看了许多教程，包括网友总结的和&lt;a href=&quot;https://docs.oracle.com/cd/E11882_01/install.112/e24326/toc.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;，这里总结了一些必备的配置和常见错误处理，以便日后查看。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Linux" scheme="https://notes.zz-zigzag.com/tags/Linux/"/>
+    
+      <category term="SSH" scheme="https://notes.zz-zigzag.com/tags/SSH/"/>
+    
+      <category term="software" scheme="https://notes.zz-zigzag.com/tags/software/"/>
+    
+      <category term="database" scheme="https://notes.zz-zigzag.com/tags/database/"/>
+    
+      <category term="setup" scheme="https://notes.zz-zigzag.com/tags/setup/"/>
+    
+      <category term="Oracle" scheme="https://notes.zz-zigzag.com/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我希望我对你来说是独占的</title>
+    <link href="https://notes.zz-zigzag.com/2017/01/See-You-Again.html"/>
+    <id>https://notes.zz-zigzag.com/2017/01/See-You-Again.html</id>
+    <published>2017-01-04T11:44:55.000Z</published>
+    <updated>2017-04-28T06:45:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我希望我对你来说是独占的"><a href="#我希望我对你来说是独占的" class="headerlink" title="我希望我对你来说是独占的"></a>我希望我对你来说是独占的</h1><blockquote><p><strong><em><a href="http://music.163.com/#/song?id=30953009" target="_blank" rel="noopener">See You Again</a></em></strong><br><strong><em>It’s been a long day without you my friend.<br>And I’ll tell you all about it when I see you again.<br>We’ve come a long way from where we began.<br>Oh I’ll tell you all about it when I see you again.<br>When I see you again.</em></strong></p></blockquote><a id="more"></a><iframe width="100%" scrolling="no" height="96" frameborder="no" src="//kiwi6.com/tracks/widget/5u75azrmo2?autostart=true&show_artist=true"></iframe>---<p>自己从小学一直读到硕士研究生，每个阶段都会有几个重要的好友。<br>小学6年，初中3年，高中3年，大学4年，研究生3年。<br>一共上了19年学，真如老爸所说，再上学就老了，而我也早已按讷不住自己。</p><p>每个阶段的自己都有不一样，但不变的是一直在成长。<br>成长是需要经历的，一些事情会催促着快快成长。<br>印象深刻的有高三，大四，研三那些努力奋斗的日子。</p><p>成长的同时，也越来越懂得珍惜，珍惜每个阶段的好朋友。<br>好朋友，是能使对方愉悦的人，即喜欢与之相处，喜欢与之交谈。<br>可天下没有不散之筵席，但情分不会因距离远和联系少而疏远。<br>借用普希金的诗：</p><blockquote><p><strong><em>一切都是瞬息<br>一切都将会过去<br>而过去了的<br>就会成为亲切的怀恋</em></strong></p></blockquote><p>我渴望和怀念在一起的日子。而“一起”，是一个神圣的词汇。<br>如果去现场看过比赛或演唱会，经历过不同人因共同愿景而聚集的一起，就会明白其中的伟大。<br>而确实存在那么3年或4年的求学生涯，我们一起生活。<br>一起学习。探讨，互帮互助。一起升学，一起毕业，一起学术攻坚。<br>一起娱乐。逛街，看电影。还记得这件衣服和谁一起买的，这个电影和谁一起看的。<br>一起旅行。火车、飞机和景区。一起旅行很能快速增进情感——陌生变为熟悉。<br>每每结束一阶段生活，都会封存一些美好时光。<br>更幸运的是，这些时光有你相伴。</p><p>我已经开始下一阶段的征程。<br>而你，我的老朋友，许久未见，十分想念。<br>与你重逢之时，我会敞开心扉倾尽所有。</p><p>我想你了，就会给你发信和打电话。<br>我还想你，就会去找你。<br>我希望我对你来说是独占的，在你想我的时候。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;我希望我对你来说是独占的&quot;&gt;&lt;a href=&quot;#我希望我对你来说是独占的&quot; class=&quot;headerlink&quot; title=&quot;我希望我对你来说是独占的&quot;&gt;&lt;/a&gt;我希望我对你来说是独占的&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;a href=&quot;http://music.163.com/#/song?id=30953009&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;See You Again&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;em&gt;It’s been a long day without you my friend.&lt;br&gt;And I’ll tell you all about it when I see you again.&lt;br&gt;We’ve come a long way from where we began.&lt;br&gt;Oh I’ll tell you all about it when I see you again.&lt;br&gt;When I see you again.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="日常随笔" scheme="https://notes.zz-zigzag.com/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="open myself" scheme="https://notes.zz-zigzag.com/tags/open-myself/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初学Node.js，探索和练习</title>
+    <link href="https://notes.zz-zigzag.com/2016/12/NodeJS-explore-and-practice.html"/>
+    <id>https://notes.zz-zigzag.com/2016/12/NodeJS-explore-and-practice.html</id>
+    <published>2016-12-28T10:36:05.000Z</published>
+    <updated>2017-01-07T12:45:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="初学Node-js，探索和练习"><a href="#初学Node-js，探索和练习" class="headerlink" title="初学Node.js，探索和练习"></a>初学Node.js，探索和练习</h1><h2 id="fs模块"><a href="#fs模块" class="headerlink" title="fs模块"></a>fs模块</h2><p>理解javascript程序的异步运行是一个难点，由于这个特点会出现一些不同于其他语言的实现方式。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> rs = fs.createReadStream(<span class="string">'1.rar'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">rs.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rs.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(count);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rs.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>对于一个5669K的文件，调用了89次data事件。</p><hr><p>持续更新……</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;初学Node-js，探索和练习&quot;&gt;&lt;a href=&quot;#初学Node-js，探索和练习&quot; class=&quot;headerlink&quot; title=&quot;初学Node.js，探索和练习&quot;&gt;&lt;/a&gt;初学Node.js，探索和练习&lt;/h1&gt;&lt;h2 id=&quot;fs模块&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+      <category term="技术学习" scheme="https://notes.zz-zigzag.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Node.js" scheme="https://notes.zz-zigzag.com/tags/Node-js/"/>
+    
+      <category term="explore" scheme="https://notes.zz-zigzag.com/tags/explore/"/>
+    
+      <category term="practice" scheme="https://notes.zz-zigzag.com/tags/practice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git常用操作详解</title>
+    <link href="https://notes.zz-zigzag.com/2016/12/Git-common-commands.html"/>
+    <id>https://notes.zz-zigzag.com/2016/12/Git-common-commands.html</id>
+    <published>2016-12-21T02:30:51.000Z</published>
+    <updated>2016-12-21T12:18:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/06/git_remote.html</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2014/06/git_remote.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.ruanyifeng.com/bl
+      
+    
+    </summary>
+    
+      <category term="收藏链接" scheme="https://notes.zz-zigzag.com/categories/%E6%94%B6%E8%97%8F%E9%93%BE%E6%8E%A5/"/>
+    
+    
+      <category term="commonly used" scheme="https://notes.zz-zigzag.com/tags/commonly-used/"/>
+    
+      <category term="command" scheme="https://notes.zz-zigzag.com/tags/command/"/>
+    
+      <category term="Git" scheme="https://notes.zz-zigzag.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>生物信息学_网址书签备份</title>
+    <link href="https://notes.zz-zigzag.com/2016/12/bioinformatics-bookmark.html"/>
+    <id>https://notes.zz-zigzag.com/2016/12/bioinformatics-bookmark.html</id>
+    <published>2016-12-14T06:18:17.000Z</published>
+    <updated>2016-12-21T11:44:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="生物信息学-网址书签备份（可导入Chrome）"><a href="#生物信息学-网址书签备份（可导入Chrome）" class="headerlink" title="生物信息学_网址书签备份（可导入Chrome）"></a><strong><a href="/files/bioinformatics_bookmark.zip">生物信息学_网址书签备份（可导入Chrome）</a></strong></h1><a id="more"></a><p><A HREF="http://www.plob.org/" target="_blank" rel="noopener" ADD_DATE="1462867127">PLOB</A><A HREF="http://genome.ucsc.edu/index.html" target="_blank" rel="noopener" ADD_DATE="1462867127">UCSC Genome Browser Home</A><H3 ADD_DATE="1479591748" LAST_MODIFIED="1479591748">文献</H3><A HREF="http://pubmed.cn/" target="_blank" rel="noopener" ADD_DATE="1462867127">PubMed 文献数据库 - 提供生物医学方面的论文文献搜索服务</A><A HREF="http://www.chinapubmed.net/" target="_blank" rel="noopener" ADD_DATE="1462867127">中文PubMed|生物医学|摘要翻译</A><A HREF="http://www.medsci.cn/sci/" target="_blank" rel="noopener" ADD_DATE="1462867127">2014年(2013年度)SCI影响因子查询-MedSci.cn</A><A HREF="http://www.ncbi.nlm.nih.gov/pubmed" target="_blank" rel="noopener" ADD_DATE="1462867127">Home - PubMed - NCBI</A><A HREF="http://www.biomedcentral.com/" target="_blank" rel="noopener" ADD_DATE="1462867127">BioMed Central | The Open Access Publisher</A><A HREF="http://biorxiv.org/" target="_blank" rel="noopener" ADD_DATE="1462867127">bioRxiv.org - the preprint server for Biology</A><H3 ADD_DATE="1479591748" LAST_MODIFIED="1479591748">博客</H3><A HREF="http://liuwei441005.blog.163.com/" target="_blank" rel="noopener" ADD_DATE="1462867127">阿飞与安达</A><A HREF="http://boyun.sh.cn/bio/" target="_blank" rel="noopener" ADD_DATE="1462867127">博耘生物信息</A><A HREF="http://blog.qiubio.com:8080/" target="_blank" rel="noopener" ADD_DATE="1462867127">糗世界 ← 欢迎来到糗糗的世界</A><A HREF="http://www.pineapplechina.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物信息初学者 R2B | Road to Bioinfomatic</A><A HREF="http://www.stbioinf.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">STbioinf&#39;s Homepage | YellowTree</A><A HREF="http://blog.sina.com.cn/tiehan1990" target="_blank" rel="noopener" ADD_DATE="1462867128">铁汉1990_新浪博客</A><A HREF="http://azaleasays.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">azalea says</A><A HREF="http://bio.rusaer.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">Bio Rusaer</A><A HREF="http://yixf.name/" target="_blank" rel="noopener" ADD_DATE="1462867128">Yixf&#39;s blog | Face to Fate in Dream.</A><A HREF="http://left.subtree.org/" target="_blank" rel="noopener" ADD_DATE="1462867128">A Sourceful of Secrets | Andrew E. Bruno</A><A HREF="http://www.chenlianfu.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">宠辱不惊，一心问学！ | 文章丢失不少，疑与域名过期有关!</A><A HREF="http://www.liucheng.name/bioinformatics/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物信息学教程收藏∷柳城博客</A><A HREF="http://blog.sina.com.cn/u/5056118076" target="_blank" rel="noopener" ADD_DATE="1462867128">葡萄糖_新浪博客</A><A HREF="http://www.zilhua.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物日志|鸣一道 | 非常感谢我的一些好友和我一起共同打理这个博客，让博客有了更多的精彩内容。明年再做一些详细的介绍。</A><A HREF="http://yanshouyu.blog.163.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">静渊的学习日志 - 静渊 - 网易博客</A><A HREF="http://blog.sina.com.cn/u/1959508200" target="_blank" rel="noopener" ADD_DATE="1462867128">子梨_新浪博客</A><A HREF="http://www.dengfeilong.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">邓飞龙-生物信息学学习者博客-生物信息学、python、可视化、大数据处理笔记分享平台</A><A HREF="http://www.ncrna.net/" target="_blank" rel="noopener" ADD_DATE="1462867128">沉默是金 | Bioinformatics</A><A HREF="http://fhqdddddd.blog.163.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">云之南 - 云之南 - 网易博客</A><A HREF="http://1.biolog.sinaapp.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物点滴 | Some where only we know!</A><A HREF="http://www.zilhua.com/data_visualization" target="_blank" rel="noopener" ADD_DATE="1462867128">数据可视化 | 生物日志|鸣一道</A><A HREF="http://davetang.org/" target="_blank" rel="noopener" ADD_DATE="1462867128">davetangdotorg</A><A HREF="http://www.iwhgao.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">rabbit gao&#39;s blog</A><H3 ADD_DATE="1479591748" LAST_MODIFIED="1479591748">论坛</H3><A HREF="http://yunbio.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">云生物 | 生物信息学(Bioinformatics)的快速问答系统</A><A HREF="http://www.bioxxx.cn/forum.php" target="_blank" rel="noopener" ADD_DATE="1462867128">最专业的生物信息学研究论坛</A><A HREF="http://seqanswers.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">SEQanswers Home</A><A HREF="http://www.bioask.net/" target="_blank" rel="noopener" ADD_DATE="1462867128">BioASK</A><A HREF="https://www.biostars.org/" target="_blank" rel="noopener" ADD_DATE="1462867128">Latest Posts</A><A HREF="http://www.dxy.cn/bbs/index.html" target="_blank" rel="noopener" ADD_DATE="1462867128">丁香园论坛 - 医学.药学.生命科学.科研交流</A><A HREF="http://www.seq.cn/portal.php" target="_blank" rel="noopener" ADD_DATE="1462867128">测序中国-专注测序-中国最权威的测序知识社区</A><H3 ADD_DATE="1479591748" LAST_MODIFIED="1479591748">数据</H3><A HREF="http://www.cngb.org/" target="_blank" rel="noopener" ADD_DATE="1462867128">国家基因库</A><A HREF="http://www.1000genomes.org/" target="_blank" rel="noopener" ADD_DATE="1462867128">Home | 1000 Genomes</A><A HREF="https://www.ebi.ac.uk/dgva" target="_blank" rel="noopener" ADD_DATE="1462867128">Database of Genomic Variants archive &lt; EMBL-EBI</A><A HREF="http://www.ncbi.nlm.nih.gov/dbvar/" target="_blank" rel="noopener" ADD_DATE="1462867128">Home - dbVar - NCBI</A><A HREF="http://dgv.tcag.ca/dgv/app/home" target="_blank" rel="noopener" ADD_DATE="1462867128">Database of Genomic Variants</A><A HREF="http://www.ncbi.nlm.nih.gov/Traces/study/" target="_blank" rel="noopener" ADD_DATE="1462867128">NCBI :: SRA Run Selector</A><A HREF="http://hapmap.ncbi.nlm.nih.gov/" target="_blank" rel="noopener" ADD_DATE="1462867128">HapMap Homepage</A><A HREF="http://sra.dnanexus.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">DNAnexus - SRA</A><A HREF="http://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener" ADD_DATE="1462867128">Home - SRA - NCBI</A><A HREF="http://www.ebi.ac.uk/ena" target="_blank" rel="noopener" ADD_DATE="1462867128">European Nucleotide Archive &lt; EMBL-EBI</A><H3 ADD_DATE="1479591748" LAST_MODIFIED="1479591748">门户</H3><A HREF="http://www.bbioo.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物秀—生物医药门户网站</A><A HREF="http://www.bioon.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物谷 - 新发现,新技术,新产业 - 生物医药新媒体门户</A><A HREF="http://www.biodiscover.com/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物探索-探索生物科技价值的新媒体门户网站</A><A HREF="http://www.dxy.cn/" target="_blank" rel="noopener" ADD_DATE="1462867128">丁香园—医学药学生命科学专业网站</A><A HREF="http://www.bioon.com.cn/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物在线 - 让科研更便捷 ：生命科学专业网，试剂，仪器，抗体，耗材，书籍，软件在线查询</A><H3 ADD_DATE="1479591748" LAST_MODIFIED="1479591748">工具</H3><A HREF="https://usegalaxy.org/" target="_blank" rel="noopener" ADD_DATE="1462867128">Galaxy</A><A HREF="http://genome.ucsc.edu/cgi-bin/hgLiftOver" target="_blank" rel="noopener" ADD_DATE="1462867128">Lift Genome Annotations</A><A HREF="http://www.bio-soft.net/" target="_blank" rel="noopener" ADD_DATE="1462867128">生物软件网-提供生物信息学免费软件和生物信息学、分子生物学图书、图像、视频等资料</A><A HREF="http://browser.1000genomes.org/tools.html" target="_blank" rel="noopener" ADD_DATE="1462867128">browser.1000genomes.org/tools.html</A><A HREF="https://wiki.gacrc.uga.edu/wiki/Software" target="_blank" rel="noopener" ADD_DATE="1463369585">Software - Research Computing Center Wiki</A><p><A HREF="http://bioviz.org/igb/index.html" target="_blank" rel="noopener" ADD_DATE="1462867127">BioViz - Home</A><A HREF="http://chromozoom.org/" target="_blank" rel="noopener" ADD_DATE="1462867127">Human - ChromoZoom, the interactive genome browser</A><A HREF="http://davetang.org/wiki/tiki-index.php" target="_blank" rel="noopener" ADD_DATE="1462867127">Dave&#39;s Wiki | HomePage</A><A HREF="https://www.genome.gov/" target="_blank" rel="noopener" ADD_DATE="1462867127">National Human Genome Research Institute (NHGRI) - Homepage</A><A HREF="http://omictools.com/" target="_blank" rel="noopener" ADD_DATE="1462867127">A workflow for multi-omic data analysis - OMICtools</A><A HREF="http://www.youku.com/playlist_show/id_18697232.html" target="_blank" rel="noopener" ADD_DATE="1462867127">生物信息学 - 专辑 - 优酷视频</A><A HREF="http://www.gersteinlab.org/" target="_blank" rel="noopener" ADD_DATE="1462867127">Gerstein Lab</A><A HREF="https://genedock.com/joinus/" target="_blank" rel="noopener" ADD_DATE="1462867127">GeneDock</A><A HREF="file:///home/zz_zigzag/NGS_Data/%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E8%AF%B4%E6%98%8E/FlagExplain.html" ADD_DATE="1462867127">Explain SAM Flags</A><A HREF="http://jbrowse.org/" target="_blank" rel="noopener" ADD_DATE="1462867127">JBrowse | A fast, embeddable genome browser built with HTML5 and JavaScript</A><A HREF="http://biolinevo.com/" target="_blank" rel="noopener" ADD_DATE="1462867127">世演生信 - 专注于生物信息分析平台</A>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;生物信息学-网址书签备份（可导入Chrome）&quot;&gt;&lt;a href=&quot;#生物信息学-网址书签备份（可导入Chrome）&quot; class=&quot;headerlink&quot; title=&quot;生物信息学_网址书签备份（可导入Chrome）&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;a href=&quot;/files/bioinformatics_bookmark.zip&quot;&gt;生物信息学_网址书签备份（可导入Chrome）&lt;/a&gt;&lt;/strong&gt;&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="生物信息" scheme="https://notes.zz-zigzag.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/"/>
+    
+    
+      <category term="bookmark" scheme="https://notes.zz-zigzag.com/tags/bookmark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NGS分析介绍系列文章</title>
+    <link href="https://notes.zz-zigzag.com/2016/11/NGS-Analysis-Introduction.html"/>
+    <id>https://notes.zz-zigzag.com/2016/11/NGS-Analysis-Introduction.html</id>
+    <published>2016-11-30T10:29:23.000Z</published>
+    <updated>2016-12-14T11:10:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><blockquote><ol><li><a href="/2016/09/NGS-Analysis-Introduction-I-Preface.html">NGS分析介绍一：前言</a></li></ol></blockquote><ol><li><a href="/2016/09/NGS-Analysis-Introduction-II-Environment-and-Skills.html">NGS分析介绍二：运行环境和技能</a><ul><li><a href="/2016/04/SSH-simple-manual.html">SSH简易使用</a></li><li><a href="/2016/05/Simple-manual-for-HPC-in-BUCT.html">Simple manual for HPC in BUCT</a></li></ul></li><li><a href="/2016/09/Sequence.html">关于测序原理</a></li><li><a href="/2016/10/NGS-Database.html">NGS分析常用数据库简介</a><ul><li><a href="/2016/05/Simple-manual-for-NGS-database.html">高通量测序及基因组变异数据库的简易使用</a></li><li><a href="/2016/05/Download-EBI-and-NCBI-data-by-Aspera.html">使用Aspera下载EBI和NCBI的数据</a></li></ul></li><li><a href="/2016/10/Reference-Genome.html">参考基因组介绍</a></li><li><a href="/2016/10/FASTQ-format.html">测序数据格式——FASTQ</a></li><li><a href="/2016/11/SAM-format-and-SAMtools.html">SAM文件格式和SAMtools</a><ul><li><a href="/2016/11/Related-documentation-of-samtools.html">SAMtools相关官方文档</a></li></ul></li><li><a href="/2016/11/VCF-format.html">VCF格式说明及常用处理</a><ul><li><a href="/2016/11/Slicing-genotype-for-individual-in-VCF-data.html">VCF数据处理之——截取个体变异的基因型</a></li></ul></li><li><a href="/2016/11/Recommended-workflows-for-variant-discovery-analysis.html">基因组变异检测的工作流程</a></li></ol><hr><a id="more"></a><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><blockquote><ol><li><a href="/2016/11/Sequence-alignment.html">序列比对那点事儿</a> （转载）</li></ol></blockquote><ol><li><a href="/2016/12/bioinformatics-bookmark.html">生物信息学_书签备份</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/NGS-Analysis-Introduction-I-Preface.html&quot;&gt;NGS分析介绍一：前言&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/NGS-Analysis-Introduction-II-Environment-and-Skills.html&quot;&gt;NGS分析介绍二：运行环境和技能&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/04/SSH-simple-manual.html&quot;&gt;SSH简易使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/05/Simple-manual-for-HPC-in-BUCT.html&quot;&gt;Simple manual for HPC in BUCT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/Sequence.html&quot;&gt;关于测序原理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/10/NGS-Database.html&quot;&gt;NGS分析常用数据库简介&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/05/Simple-manual-for-NGS-database.html&quot;&gt;高通量测序及基因组变异数据库的简易使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/05/Download-EBI-and-NCBI-data-by-Aspera.html&quot;&gt;使用Aspera下载EBI和NCBI的数据&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/10/Reference-Genome.html&quot;&gt;参考基因组介绍&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/10/FASTQ-format.html&quot;&gt;测序数据格式——FASTQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/11/SAM-format-and-SAMtools.html&quot;&gt;SAM文件格式和SAMtools&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/11/Related-documentation-of-samtools.html&quot;&gt;SAMtools相关官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/11/VCF-format.html&quot;&gt;VCF格式说明及常用处理&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/11/Slicing-genotype-for-individual-in-VCF-data.html&quot;&gt;VCF数据处理之——截取个体变异的基因型&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/11/Recommended-workflows-for-variant-discovery-analysis.html&quot;&gt;基因组变异检测的工作流程&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+      <category term="生物信息" scheme="https://notes.zz-zigzag.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/"/>
+    
+    
+      <category term="NGS" scheme="https://notes.zz-zigzag.com/tags/NGS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为笔记本添加一块固态硬盘</title>
+    <link href="https://notes.zz-zigzag.com/2016/11/Adding-a-SSD-to-PC.html"/>
+    <id>https://notes.zz-zigzag.com/2016/11/Adding-a-SSD-to-PC.html</id>
+    <published>2016-11-30T05:09:46.000Z</published>
+    <updated>2016-12-13T09:02:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="为笔记本添加一块固态硬盘"><a href="#为笔记本添加一块固态硬盘" class="headerlink" title="为笔记本添加一块固态硬盘"></a>为笔记本添加一块固态硬盘</h1><p>笔者的电脑型号为联想小新V4000，带光驱。准备入手一块固态硬盘，把原硬盘放到光驱的位置，固态硬盘放到原硬盘的位置。</p><a id="more"></a><p>首先上网查了一下此型号笔记本光驱口是否支持硬盘接入，有无成功案例。在联想官方论坛中查到有产品经理说此机型光驱电流较小，不推荐接硬盘。但是也在网上查到了一些成功案例。于是乎就在网上买了固态硬盘和硬盘托架。</p><p>为了避免重装系统，把原C盘用Ghost做了一个镜像，放到非C盘的位置。然后开始拆机，有些机器比较难拆或怕拆坏的，可上网查一下特定型号的拆机教程。拿下原HDD，把SSD放到那个位置。然后拿下光驱，把HDD固定在光驱硬盘托架上。此时不必把后盖装好，应先检验下HDD是否被识别，防止没装好一会还得全拆开。</p><p>启动时，选择启动项，如果可以从原机械硬盘就说明没问题了。一开始此机型并未能正确识别，只是听到开机时机械硬盘在转。后来咨询了下卖家客服，才得知硬盘托架有一个开关，用于支持不通过类型的接入。于是调了一下，果然能识别了。</p><p>接着就是恢复系统，进入机械硬盘系统，或者U盘PE，用Ghost恢复到SSD即可。恢复完毕后可能需要修复下启动项。后来想把HDD分区改成GPT的，顺便把原C盘格了合并到D盘去。可改完之后，重启后发现不能识别了。无奈又腾一遍，把机械硬盘，放入原来位置调了下分区表为MBR，又换回去才得以识别（调整托架接口开关也不行，目测托架只识别MBR分区方式）。</p><p>使用DiskGenus删除机械硬盘中的C盘，并变为和D盘一样的逻辑分区。然后D盘可直接扩展大小纳入C盘。这里还推荐一个常用的分区工具——分区助手，这个甚至可以实现无损数据合并磁盘（时间长，后台应该是一点点挪文件）。总之配合DG可基本完成所有硬盘操作。</p><p>值此，算是弄完了。但是，觉得C盘东西太多了，占了五十多G。最终还是以此为契机，把SSD重格为GPT磁盘，重装了Win10。</p><hr><h2 id="2016-12-04-补充"><a href="#2016-12-04-补充" class="headerlink" title="2016/12/04 补充"></a>2016/12/04 补充</h2><p>后来发现机械硬盘经常识别不稳定（偶尔识别不出），上网查阅后发现是自带希捷硬盘要求电流较高所致，附<a href="http://club.lenovo.com.cn/thread-1881162-1-1.html" target="_blank" rel="noopener">链接</a>。所以，安装双硬盘还是要事先查好自己型号的案例，再定方案不迟。本机还是这样凑合使用，把常用软件放到固态硬盘上去，机械硬盘当数据盘使用，但偶尔会有卡顿现象。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;为笔记本添加一块固态硬盘&quot;&gt;&lt;a href=&quot;#为笔记本添加一块固态硬盘&quot; class=&quot;headerlink&quot; title=&quot;为笔记本添加一块固态硬盘&quot;&gt;&lt;/a&gt;为笔记本添加一块固态硬盘&lt;/h1&gt;&lt;p&gt;笔者的电脑型号为联想小新V4000，带光驱。准备入手一块固态硬盘，把原硬盘放到光驱的位置，固态硬盘放到原硬盘的位置。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="总结备份" scheme="https://notes.zz-zigzag.com/categories/%E6%80%BB%E7%BB%93%E5%A4%87%E4%BB%BD/"/>
+    
+    
+      <category term="HDD" scheme="https://notes.zz-zigzag.com/tags/HDD/"/>
+    
+      <category term="SSD" scheme="https://notes.zz-zigzag.com/tags/SSD/"/>
+    
+  </entry>
+  
+</feed>

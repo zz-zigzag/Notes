@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar/favicon-16x16.png">
+  <link rel="mask-icon" href="/avatar/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/avatar/manifest.json">
+  <meta name="msapplication-config" content="/avatar/browserconfig.xml">
+  <meta name="google-site-verification" content="Bwdgss4WpOgAhPAzGSrIf-0trU83SLY0hDi1ePEtXug">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://notes.zz-zigzag.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="缘起，网站由来缘起域名多年前，就想申请一个域名，也曾时不时查一查中意的域名。前几天，上万网随便搜搜，由于自己的网名zz_zigzag，下划线不符合规则（曾因下划线不能注册好多东西，所以一直在考虑是不是要换个名字……）。后来发现xiaodong.site可用，还特价，首年4元，从此开启了我的站长之路。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缘起，网站由来">
+<meta property="og:url" content="https://notes.zz-zigzag.com/2016/05/The-origin-of-the-site.html">
+<meta property="og:site_name" content="zz_zigzag Notes">
+<meta property="og:description" content="缘起，网站由来缘起域名多年前，就想申请一个域名，也曾时不时查一查中意的域名。前几天，上万网随便搜搜，由于自己的网名zz_zigzag，下划线不符合规则（曾因下划线不能注册好多东西，所以一直在考虑是不是要换个名字……）。后来发现xiaodong.site可用，还特价，首年4元，从此开启了我的站长之路。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://notes.zz-zigzag.com/images/beauty/Pixabay_bb4b3bcd9c2f44415e_1000h.jpg">
+<meta property="article:published_time" content="2016-05-03T13:36:22.000Z">
+<meta property="article:modified_time" content="2017-04-27T12:34:06.000Z">
+<meta property="article:author" content="zz_zigzag">
+<meta property="article:tag" content="plugin">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="HTTPS">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://notes.zz-zigzag.com/images/beauty/Pixabay_bb4b3bcd9c2f44415e_1000h.jpg">
+
+<link rel="canonical" href="https://notes.zz-zigzag.com/2016/05/The-origin-of-the-site.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>缘起，网站由来 | zz_zigzag Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zz_zigzag Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">黎明之晓，日出东方</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://notes.zz-zigzag.com/2016/05/The-origin-of-the-site.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="zz_zigzag">
+      <meta itemprop="description" content="黎明之晓，日出东方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zz_zigzag Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          缘起，网站由来
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-05-03 21:36:22" itemprop="dateCreated datePublished" datetime="2016-05-03T21:36:22+08:00">2016-05-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-04-27 20:34:06" itemprop="dateModified" datetime="2017-04-27T20:34:06+08:00">2017-04-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/05/The-origin-of-the-site.html" class="post-meta-item leancloud_visitors" data-flag-title="缘起，网站由来" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/05/The-origin-of-the-site.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/05/The-origin-of-the-site.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="缘起，网站由来"><a href="#缘起，网站由来" class="headerlink" title="缘起，网站由来"></a>缘起，网站由来</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>多年前，就想申请一个域名，也曾时不时查一查中意的域名。前几天，上万网随便搜搜，由于自己的网名<code>zz_zigzag</code>，下划线不符合规则（曾因下划线不能注册好多东西，所以一直在考虑是不是要换个名字……）。后来发现<code>xiaodong.site</code>可用，还特价，首年4元，从此开启了我的站长之路。<br><img src="/images/beauty/Pixabay_bb4b3bcd9c2f44415e_1000h.jpg" alt=""></p>
+<a id="more"></a>
+
+<h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><p>申请域名的时候就倾向于做一个博客，因为没有其他的东西，所以这是开始。与其说是博客，还不如是随身笔记，我把一切想记的东西记在这里。最最开始，本科的时候，在网易开过博客，大多是转载；后来转到CSDN，主要写ACM/IPCP的一些解题报告。也看过其他人的独立博客，想着哪一天开始自己做一个，现在开始了，虽然有点晚，但终于起步。</p>
+<h3 id="选择博客系统"><a href="#选择博客系统" class="headerlink" title="选择博客系统"></a>选择博客系统</h3><p>自己也考察了许多，博客系统从Wordpress、Octopress、Jekyll到最后Hexo，由复杂到简单，博客本来就应该是以写内容为主要工作，管理越简单越好。另外，不需要空间，直接使用GitHub或Coding（原GitCafe）提供的Pages服务。</p>
+<h3 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h3><p>网上教程很多，其实最好的是读一遍<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方文档</a>，然后选一个主题，我选的是<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>，通读主题网站，基本能很好的搭建出来。</p>
+<h3 id="我用的第三方服务"><a href="#我用的第三方服务" class="headerlink" title="我用的第三方服务"></a>我用的第三方服务</h3><ul>
+<li>评论系统用的DISQUS，多说也试了，但觉得这个更好，功能更多一些，而且整体使用HTTPS。</li>
+<li>流量统计用的百度统计，页脚显示网站PV用的不蒜子统计，博客显示阅读次数用的leancloud，目测不蒜子统计为用url简单区分，且看不到后台数据，换域名会导致数据丢失。而leancloud根据应用key和站内地址统计，且可管理后台数据。</li>
+<li>内容分享用的AddThis，原因就是这个UI做的最好看，并且有国内的几个常用分享。</li>
+<li>搜索服务目前用的Swiftype，试用15天，到期后如果不能用计划转<a href="https://community.algolia.com/docsearch/" target="_blank" rel="noopener">DocSearch</a>或弄localsearch算了。</li>
+<li>提交搜索引擎，参考: <a href="http://tengj.top/2016/03/14/hexo6seo/" target="_blank" rel="noopener">hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</a>，需要注意，GitHub Pages禁止百度蜘蛛。</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="SSL-HTTPS"><a href="#SSL-HTTPS" class="headerlink" title="SSL/HTTPS"></a>SSL/HTTPS</h4><p>GitHub Pages的自定义域名并无SSL证书，我使用了CloudFlare服务，它提供了DNS+CDN服务，原理是用户和CDN服务器间为SSL加密，但CloudFlare和Github之间未加密。CloudFlare有许多功能，可在控制面板上依次查看。</p>
+<p>更多参考文章:</p>
+<ul>
+<li><a href="https://developer.ubuntu.com/zh-cn/blog/2016/02/17/how-host-your-static-site-https-github-pages-and-cloudflare/" target="_blank" rel="noopener">How to host your static site with HTTPS on GitHub Pages and CloudFlare</a></li>
+<li><a href="https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/" target="_blank" rel="noopener">Set Up SSL on Github Pages With Custom Domains for Free</a></li>
+<li><a href="https://konklone.com/post/github-pages-now-sorta-supports-https-so-use-it" target="_blank" rel="noopener">GitHub Pages Now (Sorta) Supports HTTPS, So Use It</a></li>
+<li><a href="https://blog.keanulee.com/2014/10/11/setting-up-ssl-on-github-pages.html" target="_blank" rel="noopener">Setting up SSL on GitHub Pages</a></li>
+</ul>
+<p>HTTPS的好处有很多，可以保证用户和网站的通信不容易被窃取或审查（即使是中间人攻击用户也可以察觉）。</p>
+<h4 id="关于图片"><a href="#关于图片" class="headerlink" title="关于图片"></a>关于图片</h4><p>图文并茂更有助于提升阅读体验，虽然大部分情况图片并不相关。我使用<a href="http://www.dashmote.com/" target="_blank" rel="noopener">dashmote</a>下载一些免版税的图片，当然也可以在<a href="https://www.flickr.com/" target="_blank" rel="noopener">flickr</a>或<a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a>上面下载无版权限制的图片。然后使用<a href="https://tinypng.com/" target="_blank" rel="noopener">tinypng</a>压缩一下，放到<code>source/images</code>目录管理。</p>
+<h3 id="主题细节修改"><a href="#主题细节修改" class="headerlink" title="主题细节修改"></a>主题细节修改</h3><p>我稍微修改了一些不太喜欢的样式和显示内容，具体哪些已经记不清了，这些工作都是一次性的，然后就可以畅快的写文章了。</p>
+<h4 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h4><p>博客内容同时deploy到GitHub和Coding的pages，网址分别为：</p>
+<blockquote>
+<p><a href="https://zz-zigzag.github.io" target="_blank" rel="noopener">https://zz-zigzag.github.io</a><br><a href="http://zz_zigzag.coding.me" target="_blank" rel="noopener">http://zz_zigzag.coding.me</a></p>
+</blockquote>
+<p>本来CNAME国内解析为Coding，海外解析为GitHub，但后来用了CloudFlare，这都作罢。<br>除了<code>public</code>目录会deploy到网站上，还有其他配置和内容文件，这也应做好备份，我把Hexo博客目录整体做了网盘同步，当然排除了<code>public</code>和<code>.deploy_git</code>这两个目录，我个人用的跨平台的同步工具<a href="https://www.jianguoyun.com/" target="_blank" rel="noopener">坚果云</a>。</p>
+<h2 id="企业邮箱"><a href="#企业邮箱" class="headerlink" title="企业邮箱"></a>企业邮箱</h2><p>域名有了，顺便弄个企业邮箱吧，我选择的<a href="https://exmail.qq.com/" target="_blank" rel="noopener">腾讯企业邮</a>，免费，像QQ邮箱一样好用。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>5月31日补充，由于CloudFlare大陆访问速度欠佳及经常抽风，已暂时放弃https，等以后有更好的解决方案再使用。同时disqus也换用多说。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/plugin/" rel="tag"># plugin</a>
+              <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+              <a href="/tags/blog/" rel="tag"># blog</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/HTTPS/" rel="tag"># HTTPS</a>
+              <a href="/tags/github/" rel="tag"># github</a>
+              <a href="/tags/coding/" rel="tag"># coding</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/04/SSH-simple-manual.html" rel="prev" title="SSH入门用法">
+      <i class="fa fa-chevron-left"></i> SSH入门用法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/05/Use-IPv6-to-touch-Google.html" rel="next" title="Use IPv6 to touch Google">
+      Use IPv6 to touch Google <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘起，网站由来"><span class="nav-number">1.</span> <span class="nav-text">缘起，网站由来</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-number">1.1.</span> <span class="nav-text">缘起</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名"><span class="nav-number">1.1.1.</span> <span class="nav-text">域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建博客"><span class="nav-number">1.2.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择博客系统"><span class="nav-number">1.2.1.</span> <span class="nav-text">选择博客系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建过程"><span class="nav-number">1.2.2.</span> <span class="nav-text">搭建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我用的第三方服务"><span class="nav-number">1.2.3.</span> <span class="nav-text">我用的第三方服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.2.4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-HTTPS"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">SSL&#x2F;HTTPS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于图片"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">关于图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题细节修改"><span class="nav-number">1.2.5.</span> <span class="nav-text">主题细节修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同步"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">同步</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#企业邮箱"><span class="nav-number">1.3.</span> <span class="nav-text">企业邮箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">1.4.</span> <span class="nav-text">补充</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zz_zigzag"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">zz_zigzag</p>
+  <div class="site-description" itemprop="description">黎明之晓，日出东方</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zz-zigzag" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zz-zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@xiaodong.dev" title="E-Mail → mailto:me@xiaodong.dev" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zigzagwb" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zigzagwb" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zz_zigzag" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zz_zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zz4zigzag" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;zz4zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备18025453号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zz_zigzag</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260429262&web_id=1260429262"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz',
+            'X-LC-Key': 'pe46eCq4Hq4MSwg7J8W2L0mR',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'EhjFgOBoMaC8Pwx2RxrKqyWo-gzGzoHsz',
+    appKey: 'oJEgPRzxCb3XrCc1vMen96jV',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

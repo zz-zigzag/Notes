@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar/favicon-16x16.png">
+  <link rel="mask-icon" href="/avatar/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/avatar/manifest.json">
+  <meta name="msapplication-config" content="/avatar/browserconfig.xml">
+  <meta name="google-site-verification" content="Bwdgss4WpOgAhPAzGSrIf-0trU83SLY0hDi1ePEtXug">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://notes.zz-zigzag.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="关于硬链接、软链接和快捷方式硬链接、软链接在UNIX&#x2F;Linux文件系统中，文件类型分为普通文件、目录文件、设备文件和符号链接等几类。每个文件的存储包含三部分，分别是文件名(filename)、文件说明(inode)、数据块(data block)。打开文件时，通过文件名找到inode id，然后找到inode，根据inode信息找到数据块。  关于inode，参考阮一峰的【理解inode】，其中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于硬链接、软链接和快捷方式">
+<meta property="og:url" content="https://notes.zz-zigzag.com/2018/02/symbolic-link.html">
+<meta property="og:site_name" content="zz_zigzag Notes">
+<meta property="og:description" content="关于硬链接、软链接和快捷方式硬链接、软链接在UNIX&#x2F;Linux文件系统中，文件类型分为普通文件、目录文件、设备文件和符号链接等几类。每个文件的存储包含三部分，分别是文件名(filename)、文件说明(inode)、数据块(data block)。打开文件时，通过文件名找到inode id，然后找到inode，根据inode信息找到数据块。  关于inode，参考阮一峰的【理解inode】，其中">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-02-25T09:08:41.000Z">
+<meta property="article:modified_time" content="2018-03-21T15:05:11.000Z">
+<meta property="article:author" content="zz_zigzag">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="file">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://notes.zz-zigzag.com/2018/02/symbolic-link.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>关于硬链接、软链接和快捷方式 | zz_zigzag Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zz_zigzag Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">黎明之晓，日出东方</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://notes.zz-zigzag.com/2018/02/symbolic-link.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="zz_zigzag">
+      <meta itemprop="description" content="黎明之晓，日出东方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zz_zigzag Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          关于硬链接、软链接和快捷方式
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-02-25 17:08:41" itemprop="dateCreated datePublished" datetime="2018-02-25T17:08:41+08:00">2018-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-03-21 23:05:11" itemprop="dateModified" datetime="2018-03-21T23:05:11+08:00">2018-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/02/symbolic-link.html" class="post-meta-item leancloud_visitors" data-flag-title="关于硬链接、软链接和快捷方式" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/02/symbolic-link.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/02/symbolic-link.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于硬链接、软链接和快捷方式"><a href="#关于硬链接、软链接和快捷方式" class="headerlink" title="关于硬链接、软链接和快捷方式"></a>关于硬链接、软链接和快捷方式</h1><h2 id="硬链接、软链接"><a href="#硬链接、软链接" class="headerlink" title="硬链接、软链接"></a>硬链接、软链接</h2><p>在UNIX/Linux文件系统中，文件类型分为普通文件、目录文件、设备文件和符号链接等几类。每个文件的存储包含三部分，分别是文件名(filename)、文件说明(inode)、数据块(data block)。打开文件时，通过文件名找到inode id，然后找到inode，根据inode信息找到数据块。</p>
+<blockquote>
+<p>关于inode，参考<a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="noopener">阮一峰的【理解inode】</a>，其中阐述比较详细，也介绍了软硬链接。</p>
+</blockquote>
+<p>系统允许不同文件名，对应到同一inode，这就是所谓的<strong>硬链接（hard links）</strong>，可使用<code>ln</code>命令创建。此外，inode中会记录指向自己文件名的个数，方便删除操作，即个数为0才会回收数据块。</p>
+<p>而<strong>软链接（symlink）又称符号链接</strong>是一种特殊类型的文件，它指向源文件，甚至指向其他文件系统（远端）的文件，当然所指向的文件也可能被删了，此时类似于空指针，可使用<code>ln -s</code> 命令创建。需要注意，软链接可用相对地址或绝对地址，如果相对地址的软链接，移动之后可能会失效。删除目录软链接时，切记<code>rm smlink</code>而不是<code>rm smlink/</code>后者会</p>
+<p><strong>目录不允许创建硬链接</strong>，试想，如果不同目录下的子目录指向同一个目录（inode)，可能会存在子目录中包含父目录的情况，造成目录死循环，如<code>cp</code>等命令会失效。这是因为硬链接太逼真了，无法区分这个是源文件还是硬链接，都是平等的，目前文件系统的设计，无法处理这种情况；但是，<strong>可以对目录建立软链接</strong>，它只是一种特殊类型的文件，里面存储了源文件的路径，在遍历目录时只把它当成一种文件来看待。需要注意的是，在复制目录时，是可以对目录下的文件均复制为硬链接的，<code>cp -al</code>，但这和对目录创建硬链接是有本质区别的。此处可参考如：</p>
+<blockquote>
+<p><a href="https://unix.stackexchange.com/questions/22394/why-are-hard-links-to-directories-not-allowed-in-unix-linux" target="_blank" rel="noopener">Why are hard links to directories not allowed in UNIX/Linux?</a><br><a href="https://askubuntu.com/questions/210741/why-are-hard-links-not-allowed-for-directories" target="_blank" rel="noopener">Why are hard links not allowed for directories?</a></p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>硬链接的使用较少，有一句话如下</p>
+<blockquote>
+<p>You generally should not use hard links anyway</p>
+</blockquote>
+<p>也就是不建议使用硬链接，确实应用场景不多，但存在即合理，有时用其拷贝文件防止误删。</p>
+<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>我们通常使用的都是软链接，它是操作系统级别的，大部分情况会应用程序被当成实实在在真实文件/目录一样，以下应用场景皆为这个原理。Linux系统中就存在大量软链接，常见的有</p>
+<h4 id="文件软链接"><a href="#文件软链接" class="headerlink" title="文件软链接"></a>文件软链接</h4><ol>
+<li><p>比如某包安装目录下的可执行文件，会被软链接到<code>$PATH</code>中，如<code>/usr/bin</code>中</p>
+</li>
+<li><p>重命名。一些库文件<code>.so</code>等，会通过软链接去掉后面的版本，方便动态编译使用，经常遇到一些开源包编译不通过，缺少相关动态链接库，需要这样加个软链接解决一下，如常见的libz</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libz.so -&gt; libz.so.1.2.7  </span><br><span class="line">libz.so.1 -&gt; libz.so.1.2.7</span><br><span class="line">libz.so.1.2.7</span><br></pre></td></tr></table></figure></li>
+<li><p>将某些无用文件指向 <code>/dev/null</code>，如某日志<code>ln -s /dev/null /data/temp.log</code></p>
+</li>
+</ol>
+<h4 id="目录软链接"><a href="#目录软链接" class="headerlink" title="目录软链接"></a>目录软链接</h4><ol>
+<li>分区容量扩容，某分区容量吃紧，可以通过将其他分区的目录软链接过来使用。或者文件移动过去，再软链接回来保持原路径不变，既节省了容量，也免除了路径更改带来的配置修改。</li>
+<li>在版本升级中，更改路径名之后，会建立软链接到旧目录兼容旧版本。</li>
+<li>将目录的软链接放到网盘目录中，网盘会同步此目录。</li>
+</ol>
+<h2 id="Windows中建立软链接"><a href="#Windows中建立软链接" class="headerlink" title="Windows中建立软链接"></a>Windows中建立软链接</h2><p>使用<code>mklink</code>在Windows中建立软硬链接，默认给文件建立软链接，如果给目录建立软链接，需要加<code>/D</code>参数，硬链接需要<code>/H</code>参数。此外NTFS格式的磁盘还特有一种Junction，和软链接类似，且只能用于文件夹。</p>
+<h2 id="关于复制和剪切软硬链接"><a href="#关于复制和剪切软硬链接" class="headerlink" title="关于复制和剪切软硬链接"></a>关于复制和剪切软硬链接</h2><p>弄清了软硬链接的原理，对复制和粘贴的结果会有一个预期，Linux下复制和剪切均符合预期，<strong>windows下复制软链接时会复制源目标，变为普通文件或目录</strong>，对文件夹Junction的剪切，会使其变为普通文件夹，并且把子文件全剪切过来。</p>
+<h2 id="快捷方式"><a href="#快捷方式" class="headerlink" title="快捷方式"></a>快捷方式</h2><p>最后说说快捷方式，它是更高层一点的应用，不同于软硬链接是文件管理和操作系统层面的东西。Windows环境下，它是一种后缀名为<code>.lnk</code>的普通文件，被系统的桌面环境，资源管理器(explorer.exe)解析。它类似于软链接，但是功能更丰富些，可以增加启动参数，快捷键等。</p>
+<p>Linux的桌面系统也有类似Windows快捷方式的东西。如Unity、KDE、GNOME，它们使用<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html" target="_blank" rel="noopener">Desktop Entry 文件标准</a>来描述程序启动配置信息，后缀为<code>.desktop</code>的文本文件，文本格式如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ cat goagent-gtk.desktop</span><br><span class="line"><span class="comment">#!/usr/bin/env xdg-open</span></span><br><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=GoAgent GTK</span><br><span class="line">Comment=GoAgent GTK Launcher</span><br><span class="line">Categories=Network;Proxy;</span><br><span class="line">Exec=/usr/bin/env python <span class="string">"/home/zz_zigzag/software/agent/goagent-gtk.py"</span></span><br><span class="line">Icon=/home/zz_zigzag/software/agent/goagent-logo.png</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>统一放在/usr/share/applications下被桌面系统索引。</p>
+<h2 id="参考连接-附录"><a href="#参考连接-附录" class="headerlink" title="参考连接|附录"></a>参考连接|附录</h2><blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Symbolic_link" target="_blank" rel="noopener">Symbolic link</a><br> <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank" rel="noopener">理解 Linux 的硬链接与软链接</a><br><a href="http://www.binarythink.net/2013/06/windows-link/" target="_blank" rel="noopener">Windows的四种链接方式</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="noopener">阮一峰的【理解inode】</a><br><a href="http://blog.csdn.net/xiaokang123456kao/article/details/74171875" target="_blank" rel="noopener">深入理解操作系统原理之文件系统</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/file/" rel="tag"># file</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/02/RegExp.html" rel="prev" title="最后一次总结正则表达式（RegExp）">
+      <i class="fa fa-chevron-left"></i> 最后一次总结正则表达式（RegExp）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/03/Enterprise-Architect-sync-setup.html" rel="next" title="Enterprise Architect协作环境配置">
+      Enterprise Architect协作环境配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于硬链接、软链接和快捷方式"><span class="nav-number">1.</span> <span class="nav-text">关于硬链接、软链接和快捷方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬链接、软链接"><span class="nav-number">1.1.</span> <span class="nav-text">硬链接、软链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">1.2.</span> <span class="nav-text">应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬链接"><span class="nav-number">1.2.1.</span> <span class="nav-text">硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软链接"><span class="nav-number">1.2.2.</span> <span class="nav-text">软链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件软链接"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">文件软链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录软链接"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">目录软链接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows中建立软链接"><span class="nav-number">1.3.</span> <span class="nav-text">Windows中建立软链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于复制和剪切软硬链接"><span class="nav-number">1.4.</span> <span class="nav-text">关于复制和剪切软硬链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷方式"><span class="nav-number">1.5.</span> <span class="nav-text">快捷方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考连接-附录"><span class="nav-number">1.6.</span> <span class="nav-text">参考连接|附录</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zz_zigzag"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">zz_zigzag</p>
+  <div class="site-description" itemprop="description">黎明之晓，日出东方</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zz-zigzag" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zz-zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@xiaodong.dev" title="E-Mail → mailto:me@xiaodong.dev" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zigzagwb" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zigzagwb" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zz_zigzag" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zz_zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zz4zigzag" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;zz4zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备18025453号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zz_zigzag</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260429262&web_id=1260429262"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz',
+            'X-LC-Key': 'pe46eCq4Hq4MSwg7J8W2L0mR',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'EhjFgOBoMaC8Pwx2RxrKqyWo-gzGzoHsz',
+    appKey: 'oJEgPRzxCb3XrCc1vMen96jV',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

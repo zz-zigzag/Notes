@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar/favicon-16x16.png">
+  <link rel="mask-icon" href="/avatar/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/avatar/manifest.json">
+  <meta name="msapplication-config" content="/avatar/browserconfig.xml">
+  <meta name="google-site-verification" content="Bwdgss4WpOgAhPAzGSrIf-0trU83SLY0hDi1ePEtXug">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://notes.zz-zigzag.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="CentOS 7.2 远程安装 Oracle 11g 及常用操作近期从零安装Oracle，网上查看了许多教程，包括网友总结的和官方文档，这里总结了一些必备的配置和常见错误处理，以便日后查看。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7.2 远程安装 Oracle 11g">
+<meta property="og:url" content="https://notes.zz-zigzag.com/2017/01/Install-oracle-11g-on-Centos7.html">
+<meta property="og:site_name" content="zz_zigzag Notes">
+<meta property="og:description" content="CentOS 7.2 远程安装 Oracle 11g 及常用操作近期从零安装Oracle，网上查看了许多教程，包括网友总结的和官方文档，这里总结了一些必备的配置和常见错误处理，以便日后查看。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-20T09:28:16.000Z">
+<meta property="article:modified_time" content="2017-09-26T03:41:54.000Z">
+<meta property="article:author" content="zz_zigzag">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="SSH">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="database">
+<meta property="article:tag" content="setup">
+<meta property="article:tag" content="Oracle">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://notes.zz-zigzag.com/2017/01/Install-oracle-11g-on-Centos7.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CentOS 7.2 远程安装 Oracle 11g | zz_zigzag Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zz_zigzag Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">黎明之晓，日出东方</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://notes.zz-zigzag.com/2017/01/Install-oracle-11g-on-Centos7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="zz_zigzag">
+      <meta itemprop="description" content="黎明之晓，日出东方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zz_zigzag Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          CentOS 7.2 远程安装 Oracle 11g
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-20 17:28:16" itemprop="dateCreated datePublished" datetime="2017-01-20T17:28:16+08:00">2017-01-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-09-26 11:41:54" itemprop="dateModified" datetime="2017-09-26T11:41:54+08:00">2017-09-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/01/Install-oracle-11g-on-Centos7.html" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 7.2 远程安装 Oracle 11g" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/01/Install-oracle-11g-on-Centos7.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/01/Install-oracle-11g-on-Centos7.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CentOS-7-2-远程安装-Oracle-11g-及常用操作"><a href="#CentOS-7-2-远程安装-Oracle-11g-及常用操作" class="headerlink" title="CentOS 7.2 远程安装 Oracle 11g 及常用操作"></a>CentOS 7.2 远程安装 Oracle 11g 及常用操作</h1><p>近期从零安装Oracle，网上查看了许多教程，包括网友总结的和<a href="https://docs.oracle.com/cd/E11882_01/install.112/e24326/toc.htm" target="_blank" rel="noopener">官方文档</a>，这里总结了一些必备的配置和常见错误处理，以便日后查看。</p>
+<a id="more"></a>
+
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="安装文件"><a href="#安装文件" class="headerlink" title="安装文件"></a>安装文件</h3><ul>
+<li>OS:<ul>
+<li><a href="https://www.centos.org/download/" target="_blank" rel="noopener">CentOS 7</a>，安装可参考: <a href="/2016/11/How-to-install-a-CentOS.html">CentOS系统安装配置</a> 和 <a href="/2016/11/Disk-partition-table-format.html">磁盘分区格式与系统引导方式</a></li>
+</ul>
+</li>
+<li><a href="http://www.oracle.com/technetwork/cn/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">Oracle 11g</a>:<ul>
+<li>linux.x64_11gR2_database_1of2.zip</li>
+<li>linux.x64_11gR2_database_2of2.zip</li>
+</ul>
+</li>
+</ul>
+<h3 id="配置用户（以root登陆）"><a href="#配置用户（以root登陆）" class="headerlink" title="配置用户（以root登陆）"></a>配置用户（以root登陆）</h3><ul>
+<li>添加用户组<ul>
+<li>Oracle 清单组(一般为oinstall: <code>groupadd oinstall</code>)<br>Oracle 所有者，拥有Oracle中央清单（oraInventory）的写入权限。</li>
+<li>数据库管理员(OSDBA，一般为dba: <code>groupadd dba</code>)<br>OSDBA组的成员通过操作系统身份验证，使用SQL以SYSDBA身份链接到ORACLE实例。该组成员可执行关键的数据库管理任务，如创建数据库、启动和关闭实例。SYSDBA 系统权限甚至在数据库未打开时也允许访问数据库实例。对此权限的控制完全超出了数据库本身的范围。不要混淆SYSDBA系统权限与数据库角色DBA。DBA角色不包括SYSDBA或SYSOPER系统权限。</li>
+<li>数据库操作员(OSOPER，一般为oper: <code>groupadd oper</code>)<br>OSOPER组的成员，使用SQL以SYSOPER连接一个实例。这个成员拥有一组有限的数据库管理权限，如管理和运行备份。SYSOPER系统权限甚至也允许在未打开数据库的情况下访问实例。要使用该组，需选择Advanced安装类型来配置，否则可不建此用户组。</li>
+</ul>
+</li>
+<li>添加用户<ul>
+<li>新建：<code>useradd -g oinstall -G dba oracle</code></li>
+<li>修改密码：<code>passwd oracle</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="配置内核参数和资源限制"><a href="#配置内核参数和资源限制" class="headerlink" title="配置内核参数和资源限制"></a>配置内核参数和资源限制</h3><p>这一步可以省略，因为安装过程中Oracle会检测到这些配置不符合要求，会生成一个脚本，用root执行即可配置完毕。</p>
+<ul>
+<li><p>内核参数修改<code>/etc/sysctl.conf</code>。增加如下参数，并立即生效<code>sysctl -p</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fs.aio-max-nr</span> = <span class="number">1048576</span></span><br><span class="line"><span class="attr">fs.file-max</span> = <span class="number">6815744</span></span><br><span class="line"><span class="attr">kernel.shmall</span> = <span class="number">2097152</span></span><br><span class="line"><span class="attr">kernel.shmmax</span> = <span class="number">536870912</span></span><br><span class="line"><span class="attr">kernel.shmmni</span> = <span class="number">4096</span></span><br><span class="line"><span class="attr">kernel.sem</span> = <span class="number">250</span> <span class="number">32000</span> <span class="number">100</span> <span class="number">128</span></span><br><span class="line"><span class="attr">net.ipv4.ip_local_port_range</span> = <span class="number">9000</span> <span class="number">65500</span></span><br><span class="line"><span class="attr">net.core.rmem_default</span> = <span class="number">262144</span></span><br><span class="line"><span class="attr">net.core.rmem_max</span> = <span class="number">4194304</span></span><br><span class="line"><span class="attr">net.core.wmem_default</span> = <span class="number">262144</span></span><br><span class="line"><span class="attr">net.core.wmem_max</span> = <span class="number">1048576</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>资源限制修改<code>/etc/security/limits.conf</code>。增加如下参数，提高oracle用户的资源限制。分别是进程数、打开的文件数、堆栈、驻留内存上限。soft为软规则，超过限制警告，hard为硬规则，不允许超过。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">oracle </span>soft nproc <span class="number">2047</span></span><br><span class="line"><span class="keyword">oracle </span>hard nproc <span class="number">16384</span></span><br><span class="line"><span class="keyword">oracle </span>soft nofile <span class="number">4096</span></span><br><span class="line"><span class="keyword">oracle </span>hard nofile <span class="number">65536</span></span><br><span class="line"><span class="keyword">oracle </span>soft stack unlimited</span><br><span class="line"><span class="keyword">oracle </span>hard stack unlimited</span><br><span class="line"><span class="keyword">oracle </span>soft memlock unlimited</span><br><span class="line"><span class="keyword">oracle </span>hard memlock unlimited</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h3><p>后续数据库安装时，会检测依赖包，此处可先行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install binutils compat-libcap1  compat-libstdc++-33 compat-libstdc++-33*.i686 elfutils-libelf-devel gcc gcc-c++ glibc*.i686 glibc glibc-devel glibc-devel*.i686 ksh libgcc*.i686 libgcc libstdc++ libstdc++*.i686 libstdc++-devel libstdc++-devel*.i686 libaio libaio*.i686 libaio-devel libaio-devel*.i686 make sysstat unixODBC unixODBC*.i686 unixODBC-devel unixODBC-devel*.i686 libXp</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="配置oracle用户环境变量"><a href="#配置oracle用户环境变量" class="headerlink" title="配置oracle用户环境变量"></a>配置oracle用户环境变量</h3><p>可修改<code>~/.bash_profile</code>或<code>~/.bashrc</code>(zsh为<code>~/.zshrc</code>)。前者在用户第一次登录时执行一次，后者在该用户每次终端启用时均执行。使用<code>source 文件名</code>可立即生效。添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">umask</span> 022	<span class="comment"># 创建文件默认去除022权限，对应755</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=<span class="variable">$HOME</span>/app	<span class="comment"># 安装路径</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_SID=lab	<span class="comment"># ORACLE实例名</span></span><br><span class="line"><span class="built_in">export</span> TMP=/tmp</span><br></pre></td></tr></table></figure>
+<h3 id="远程安装配置"><a href="#远程安装配置" class="headerlink" title="远程安装配置"></a>远程安装配置</h3><ul>
+<li>远程安装时，需要SSH转发图形界面。检查<code>/etc/ssh/sshd_config</code>的配置<code>X11Forwarding yes</code>，并<code>service sshd restart</code>。</li>
+<li>本地Windows可用Xmanager监听图形界面，远程服务器需有Xserver：<code>yum install xorg-x11-server-util xorg-x11-apps xorg-x11-xauth xterm</code>，可能还需要<code>xhost +</code>添加图形界面访问权限，运行<code>xclock</code>观察是否出现图形时钟进行测试。</li>
+<li>如使用Xshell登录，则可在连接属性“隧道”中选择转发X11连接到Xmanager，此设置会自动配置oracle用户<code>DISPLAY</code>环境变量。若使用ssh命令连接，可手动添加如下环境变量。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xServer</span></span><br><span class="line"><span class="built_in">export</span> DISPLAY=192.168.0.1:0.0 <span class="comment"># IP为本地的IP，即，显示窗口的IP。</span></span><br><span class="line"><span class="built_in">export</span> LANG=c	<span class="comment"># 设置语言为ASCII环境，如窗口显示乱码可加此环境变量。</span></span><br></pre></td></tr></table></figure></li>
+<li>在运行<code>runInstaller</code>安装时可能需要手动打开Xmanager进行监听。</li>
+</ul>
+<h2 id="安装Oracle-database（以oracle用户登录）"><a href="#安装Oracle-database（以oracle用户登录）" class="headerlink" title="安装Oracle database（以oracle用户登录）"></a>安装Oracle database（以oracle用户登录）</h2><ol>
+<li>把两个ZIP文件，并解压至同一文件夹，如<code>/opt/oracle/</code>。运行<code>runInstaller</code>可弹出图形窗口进行安装，根据需要选择安装选项。</li>
+<li>安装时，installer会推荐默认的安装地址，如11g，通常为<code>$ORACLE_BASE/11g</code>，后续可添加如下环境变量将一系列oracle命令加到PATH中去。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/11g</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$ORACLE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></li>
+<li>中途有一步是检查依赖包。即使进行了上述依赖包安装，还可能提示一些i386的包不存在，但CentOS的32bit包都是i686的，此处可忽略这些。</li>
+<li>目前还有一个问题就是提示，内核参数<code>semmni</code>期望设置为128，但在<code>/etc/sysctl.conf</code>中添加<code>kernel.semmni = 128</code>中后，<code>sysctl -p</code>提示找不到semmni文件，所以目前也忽略了此错误，未加<code>semmni</code>。</li>
+</ol>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>后续滚动条阶段时，遇到了两个编译错误，查看日志得到详细信息。</p>
+<h4 id="ins-ctx-mk-报错-undefined-reference-to-memcpy-GLIBC-2-14"><a href="#ins-ctx-mk-报错-undefined-reference-to-memcpy-GLIBC-2-14" class="headerlink" title="ins_ctx.mk 报错 undefined reference to memcpy@GLIBC_2.14"></a>ins_ctx.mk 报错 undefined reference to <a href="mailto:memcpy@GLIBC_2.14">memcpy@GLIBC_2.14</a></h4><p>首先查看/usr/lib64/libc.a文件是否存在，如不存在可<code>yum install glibc-static</code>下载。然后修改出错的makefile文件（<code>$ORACLE_HOME/ctx/lib/ins_ctx.mk</code>），在<code>$(LINK_CTXHX) $(CTXHXOBJ) $(INSO_LINK)</code>前面添加<code>-static /usr/lib64/libc.a</code>，即采用静态链接，可解决此错误，点击retry通过。</p>
+<h4 id="ins-emagent-mk-报错-Error-in-invoking-target-‘agent-nmhs’"><a href="#ins-emagent-mk-报错-Error-in-invoking-target-‘agent-nmhs’" class="headerlink" title="ins_emagent.mk 报错 Error in invoking target ‘agent nmhs’"></a>ins_emagent.mk 报错 Error in invoking target ‘agent nmhs’</h4><p>修改出错的makefile文件，在<code>$(MK_EMAGENT_NMECTL)</code>之后加上<code>-lnnz11</code>链接libnnz11.so库，点击retry即可通过。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/SSH/" rel="tag"># SSH</a>
+              <a href="/tags/software/" rel="tag"># software</a>
+              <a href="/tags/database/" rel="tag"># database</a>
+              <a href="/tags/setup/" rel="tag"># setup</a>
+              <a href="/tags/Oracle/" rel="tag"># Oracle</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/01/See-You-Again.html" rel="prev" title="我希望我对你来说是独占的">
+      <i class="fa fa-chevron-left"></i> 我希望我对你来说是独占的
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/01/PLSQL-Developer-setting.html" rel="next" title="PLSQL Developer安装配置">
+      PLSQL Developer安装配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-7-2-远程安装-Oracle-11g-及常用操作"><span class="nav-number">1.</span> <span class="nav-text">CentOS 7.2 远程安装 Oracle 11g 及常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期准备"><span class="nav-number">1.1.</span> <span class="nav-text">前期准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置用户（以root登陆）"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置用户（以root登陆）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置内核参数和资源限制"><span class="nav-number">1.1.3.</span> <span class="nav-text">配置内核参数和资源限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖包"><span class="nav-number">1.1.4.</span> <span class="nav-text">安装依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置oracle用户环境变量"><span class="nav-number">1.1.5.</span> <span class="nav-text">配置oracle用户环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程安装配置"><span class="nav-number">1.1.6.</span> <span class="nav-text">远程安装配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Oracle-database（以oracle用户登录）"><span class="nav-number">1.2.</span> <span class="nav-text">安装Oracle database（以oracle用户登录）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ins-ctx-mk-报错-undefined-reference-to-memcpy-GLIBC-2-14"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">ins_ctx.mk 报错 undefined reference to memcpy@GLIBC_2.14</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ins-emagent-mk-报错-Error-in-invoking-target-‘agent-nmhs’"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">ins_emagent.mk 报错 Error in invoking target ‘agent nmhs’</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zz_zigzag"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">zz_zigzag</p>
+  <div class="site-description" itemprop="description">黎明之晓，日出东方</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zz-zigzag" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zz-zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@xiaodong.dev" title="E-Mail → mailto:me@xiaodong.dev" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zigzagwb" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zigzagwb" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zz_zigzag" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zz_zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zz4zigzag" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;zz4zigzag" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备18025453号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zz_zigzag</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260429262&web_id=1260429262"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'WPRjyUW89S9l2QCSR878A4m4-gzGzoHsz',
+            'X-LC-Key': 'pe46eCq4Hq4MSwg7J8W2L0mR',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'EhjFgOBoMaC8Pwx2RxrKqyWo-gzGzoHsz',
+    appKey: 'oJEgPRzxCb3XrCc1vMen96jV',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
